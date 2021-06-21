@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import './Footer.scss';
 import Logo from '../assets/logo.png';
 
-const Footer = () => {
+const Footer = ({ device }) => {
   return (
     <footer>
-      <div className="footer-link">
+      <div className={`footer-link ${device}`}>
         {/* Logo */}
         <div className="footer-link-logo">
           <Link to="/">
@@ -64,9 +64,9 @@ const Footer = () => {
             <Link to="/">No Icon</Link>            
           </div>
         </div>        
-        <div className="footer-bottom">
-          Copyright © 2021 Apple Inc. - All rights reserved.
-        </div>
+      </div>
+      <div className="footer-bottom">
+        Copyright © 2021 Apple Inc. - All rights reserved.
       </div>
     </footer>
   );

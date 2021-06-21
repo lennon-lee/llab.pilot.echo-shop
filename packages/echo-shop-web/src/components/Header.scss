@@ -4,51 +4,55 @@ header {
   background-color: rgb(25 23 32 / 47%);
   width: 100%;
   height: 78px;
-}
 
-header .nav {
-  width: 100%;
-  padding-left: 93px;
-  padding-right: 93px;
-}
+  .nav {
+    width: 100%;
+    padding-left: 93px;
+    padding-right: 93px;
 
-header .nav .logo-wrapper {
-  display: inline-block;
-  position: relative;
-  top: 14px;
-  width: 5%;
-}
+    .logo-wrapper {
+      display: inline-block;
+      position: relative;
+      top: 14px;
+      width: 5%;
+    }
+    
+    .menu-wrapper {
+      display: inline-block;
+      position: relative;
+      top: -5px;
+      text-align: center;
+      width: 78%;
 
-header .nav .menu-wrapper {
-  display: inline-block;
-  position: relative;
-  top: -5px;
-  text-align: center;
-  width: 78%;
-}
+      .menu-item {
+        display: inline-block;
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+      .menu-item a {
+        font-size: 15px;
+        font-weight: 500;
+        color: #FFFFFF;
+        text-decoration: none;
+      }
+    }    
+    
+    .quick-icon {
+      display: inline-block;
+      text-align: right;
+      width: 17%;
+    }
 
-header .nav .menu-item {
-  display: inline-block;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-header .nav .menu-item a {
-  font-size: 15px;
-  font-weight: 500;
-  color: #FFFFFF;
-  text-decoration: none;
-}
-
-header .nav .quick-icon {
-  display: inline-block;
-  text-align: right;
-  width: 17%;
-}
-
-.mobile-menu {
-  text-align: right;
-  position: relative;
-  top: -40px;
-  color: #FFFFFF;
-  cursor: pointer;
+    .mobile-menu {
+      text-align: right;
+      position: relative;
+      top: -30px;
+      cursor: pointer;
+    }    
+  }
+  .nav.mobile {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
