@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.scss';
-// import { ReactComponent as BurgerIcon } from '../assets/burger.svg';
 import BurgerIcon from '../assets/burger.png';
 import Logo from '../assets/logo.png';
 import SearchIcon from '../assets/search.png';
