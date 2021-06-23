@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import Cookie from 'js-cookie';
 import {
-  userLoginReducer
+  userAccessReducer
 } from './reducers/userReducers';
 import {
   productListReducer
@@ -11,11 +11,11 @@ import {
 const userInfo = Cookie.getJSON('userInfo') || null;
 
 const initialState = {
-  userLogin: { userInfo }
+  userData: { userInfo }
 };
 
 const reducer = combineReducers({
-  userLogin: userLoginReducer,
+  userData: userAccessReducer,
   productList: productListReducer,
 });
 

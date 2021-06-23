@@ -1,61 +1,71 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { login } from '../../actions/userActions';
+import { update, logout } from '../../actions/userActions';
 
-import './Login.scss';
+import './Profile.scss';
 
-const Login = () => {
+const Profile = () => {
   const history = useHistory();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const userData = useSelector((state) => state.userData);
   const { loading, userInfo, error } = userData;
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (userInfo && userInfo !== 'undefined') {
-      history.goBack();
+      setName(userInfo.name);
+      setEmail(userInfo.email);
     }
+
     return () => {
     };
   }, [history, userInfo]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+    dispatch(update({userId: userInfo._id, name, email, password}));
   };
-  const registerHandler = () => {
-    history.push('/register');
-  }
+  const logoutHandler = () => {
+    dispatch(logout());
+    history.push('/');
+  };
 
   return (
-    <section className="login-form">
+    <section className="profile-form">
       <form onSubmit={ submitHandler } className="form-container" >
-        <div><h2>Login</h2></div>
+        <div><h2>User Profile</h2></div>
         <div>
           {loading && <div>Loading...</div>}
           {error && <div>{error}</div>}
         </div>
+
+        <div>
+          <label htmlFor="name">Name</label>
+          <input value={ name } type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
+        </div>
         <div>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
+          <input value={ email } type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div>
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
         </div>
         <div>
-          <button type="submit" className="button primary">Login</button>
+          <button type="submit" className="button primary">Update</button>
         </div>
         <div>
           New to Echo Shop?
         </div>
         <div>
-          <button type="button" onClick={ registerHandler } className="button gray">Create your echo shop account</button>
+          <button type="button" onClick={ logoutHandler } className="button gray">Logout</button>
         </div>
       </form>
     </section>
   );
 };
 
-export default Login;
+export default Profile;

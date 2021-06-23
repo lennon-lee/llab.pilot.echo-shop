@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../../actions/productActions';
 import Product from '../../components/ui/Product';
@@ -6,23 +6,16 @@ import Product from '../../components/ui/Product';
 import './Main.scss';
 
 const Main = () => {
-  const category = '';
-  const [searchKeyword, setSearchKeyword] = useState('');
   const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(listProducts(category));
+    dispatch(listProducts());
 
     return () => {
     }
-  }, [category]);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(listProducts(category, searchKeyword, ''));
-  }
-
+  }, [dispatch]);
+  
   return (
     <section className="main-sec">
       {loading ? (

@@ -1,13 +1,52 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './Header.scss';
 import BurgerIcon from '../assets/burger.png';
 import Logo from '../assets/logo.png';
 import SearchIcon from '../assets/search.png';
+import LoginIcon from '../assets/login.png';
 import ProfileIcon from '../assets/profile.png';
-import BuyIcon from '../assets/buy.png';
+import CartIcon from '../assets/cart.png';
+import { useSelector, useDispatch } from 'react-redux';
+import { listProducts } from '../actions/productActions';
+
+import './Header.scss';
 
 const Header = ({ device }) => {
+  // User
+  const userData = useSelector((state) => state.userData);
+  const { userInfo } = userData;
+  let userLink;
+  if (userInfo) {
+    userLink = <>
+      <Link to="/profile">
+        <img
+          style={{ width: `28px`, height: `28px` }}
+          src={ ProfileIcon }
+          alt="profileIcon"
+        />
+      </Link>
+    </>
+  } else {
+    userLink = <>
+      <Link to="/login">
+        <img
+          style={{ width: `28px`, height: `28px` }}
+          src={ LoginIcon }
+          alt="login"
+        />
+      </Link>
+    </>
+  }
+
+  // Search
+  const category = "";
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const dispatch = useDispatch();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(listProducts(category, searchKeyword, ''));
+  }
+
   return (
     <header>
       <div className={`nav ${device}`}>
@@ -22,10 +61,26 @@ const Header = ({ device }) => {
           </Link>
         </div>
 
+        {/* Search */}
+        <div className="filter-wrapper">
+          <form onSubmit={ submitHandler }>
+            <div className="filter-serarch">
+              <input type="text" name="searchKeyword" onChange={ (e) => setSearchKeyword(e.target.value) } />
+              <button type="submit">
+                <img
+                  style={{ width: `18px`, height: `18px` }}
+                  src={ SearchIcon }
+                  alt="searchIcon"
+                />
+              </button>
+            </div>
+          </form>
+        </div>
+
         {/* PC Web */}
         { device === "pc" && <>
           {/* Menu */}
-          <div className="menu-wrapper">
+          {/* <div className="menu-wrapper">
             <div className="menu-item">
               <Link to="/shirts">SHIRTS</Link>
             </div>
@@ -35,34 +90,19 @@ const Header = ({ device }) => {
             <div className="menu-item">
               <Link to="/dress">DRESS</Link>
             </div>
-          </div>
+          </div> */}
 
           {/* Quick Icon */}
           <div className="quick-icon">
-            <div style={{ display: `inline-block`, position: `relative`, right: `94px` }}>
-              <Link to="/">
-                <img
-                  style={{ width: `25px`, height: `25px` }}
-                  src={ SearchIcon }
-                  alt="searchIcon"
-                />
-              </Link>
-            </div>
             <div style={{ display: `inline-block`, position: `relative`, right: `47px` }}>
-              <Link to="/login">
-                <img
-                  style={{ width: `25px`, height: `25px` }}
-                  src={ ProfileIcon }
-                  alt="profileIcon"
-                />
-              </Link>
+              { userLink }
             </div>
             <div style={{ display: `inline-block`, position: `relative`, right: `0px` }}>
               <Link to="/">
                 <img
-                  style={{ width: `25px`, height: `25px` }}
-                  src={ BuyIcon }
-                  alt="buyIcon"
+                  style={{ width: `28px`, height: `28px` }}
+                  src={ CartIcon }
+                  alt="cartIcon"
                 />
               </Link>
             </div>

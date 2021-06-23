@@ -1,22 +1,21 @@
 import {
-  USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_LOGIN_FAIL,
-  USER_LOGOUT
+  USER_ACCESS_REQUEST, USER_ACCESS_SUCCESS, USER_ACCESS_FAIL,
+  USER_EXIT
 } from "../constants/userConstatns";
 
-const userLoginReducer = (state = {}, action) => {
+const userAccessReducer = (state = {}, action) => {
   switch (action.type) {
-    case USER_LOGIN_REQUEST:
+    case USER_ACCESS_REQUEST:
       return { loading: true };
-    case USER_LOGIN_SUCCESS:
-      console.log(action);
+    case USER_ACCESS_SUCCESS:
       return { loading: false, userInfo: action.payload };
-    case USER_LOGIN_FAIL:
+    case USER_ACCESS_FAIL:
       return { loading: false, error: action.payload };
-    case USER_LOGOUT:
+    case USER_EXIT:
       return {};
     default:
       return state;
   }
 }
 
-export { userLoginReducer }
+export { userAccessReducer }
