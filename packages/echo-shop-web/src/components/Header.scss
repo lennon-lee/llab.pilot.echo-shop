@@ -1,23 +1,23 @@
 header {
   display: flex;
+  flex-direction: column;
   position: fixed;
   background-color: rgb(25 23 32 / 47%);
   width: 100%;
-  height: 60px;
 
   .nav {
-    width: 100%;
     padding-left: 93px;
     padding-right: 93px;
 
     .logo-wrapper {
       float: left;
       margin-top: 5px;
+      margin-bottom: 2px;
     }
     
     .filter-wrapper {
       float: left;
-      width: 70%;
+      width: 68%;
       margin-left: 20px;
       margin-top: 6px;
 
@@ -99,6 +99,26 @@ header {
       cursor: pointer;
       margin-top: 12px;
     }    
+  }
+
+  .category {
+    padding-left: 93px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+    .menu-wrapper {
+      display: flex;
+
+      .menu-item {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      .menu-item a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
   }
 
   // mobile web

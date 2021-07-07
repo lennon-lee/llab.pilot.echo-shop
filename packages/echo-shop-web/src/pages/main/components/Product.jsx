@@ -1,14 +1,18 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
 import './Product.scss';
 
 const Product = ({ id, src, name, brand, price }) => (
   <div className="product">
     <div className="product-cover">
-      <img
-        style={{ width: `263px`, height: `356px`}}
-        src={ src }
-        alt="product"
-      />
+      <Link to={'/product/productDetail/' + id}>
+        <img
+          style={{ width: `263px`, height: `356px`}}
+          src={ src }
+          alt="product"
+        />
+      </Link>
     </div>
     <div className="product-wrap">
       <div className="product-name">{ name }</div>

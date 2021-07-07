@@ -5,7 +5,8 @@ import {
   userAccessReducer
 } from './reducers/userReducers';
 import {
-  productListReducer
+  productListReducer,
+  productDetailReducer
 } from './reducers/productReducers';
 
 const userInfo = Cookie.getJSON('userInfo') || null;
@@ -17,6 +18,7 @@ const initialState = {
 const reducer = combineReducers({
   userData: userAccessReducer,
   productList: productListReducer,
+  productDetail: productDetailReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

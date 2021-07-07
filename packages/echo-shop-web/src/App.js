@@ -6,6 +6,7 @@ import Main from './pages/main/Main';
 import Login from './pages/login/Login';
 import Profile from './pages/profile/Profile';
 import Register from './pages/register/Register';
+import ProductDetail from './pages/product/ProductDetail';
 
 function App() {
   const isPC = useMediaQuery({
@@ -17,6 +18,7 @@ function App() {
     <div>
       <Header device={ device }></Header>
       <Switch>
+        {/* Quick Icon */}
         <Route path="/login">
           <Login />
         </Route>
@@ -26,6 +28,13 @@ function App() {
         <Route path="/register">
           <Register />
         </Route>
+
+        {/* Product */}
+        <Route path="/product/productDetail/:id">
+          <ProductDetail />
+        </Route>
+
+        {/* Main */}
         <Route path="/">
           <Main />
         </Route>

@@ -78,9 +78,50 @@ const Header = ({ device }) => {
         </div>
 
         {/* PC Web */}
-        { device === "pc" && <>
-          {/* Menu */}
-          {/* <div className="menu-wrapper">
+        { device === "pc" && <>         
+        {/* Quick Icon */}
+        <div className="quick-icon">
+          <div style={{ display: `inline-block`, position: `relative`, right: `47px` }}>
+            { userLink }
+          </div>
+          <div style={{ display: `inline-block`, position: `relative`, right: `0px` }}>
+            <Link to="/">
+              <img
+                style={{ width: `28px`, height: `28px` }}
+                src={ CartIcon }
+                alt="cartIcon"
+              />
+            </Link>
+          </div>
+        </div>        
+        </> }
+
+        {/* Mobile Web */}
+        { device === "mobile" && <>
+        <div className="mobile-menu">
+          {/* <BurgerIcon /> */}
+          <img
+            style={{ width: `20px`, height: `15px` }}
+            src={ BurgerIcon }
+            alt="burger"
+          />
+        </div>
+        </> }
+      </div>
+      
+      {/* PC Web */}
+      { device === "pc" && <>
+      <div className={`category`}>
+         {/* Menu */}
+          <div className="menu-wrapper">
+            <div className="menu-category">
+              {/* <BurgerIcon /> */}
+              <img
+                style={{ width: `20px`, height: `15px` }}
+                src={ BurgerIcon }
+                alt="burger"
+              />
+            </div>
             <div className="menu-item">
               <Link to="/shirts">SHIRTS</Link>
             </div>
@@ -90,37 +131,9 @@ const Header = ({ device }) => {
             <div className="menu-item">
               <Link to="/dress">DRESS</Link>
             </div>
-          </div> */}
-
-          {/* Quick Icon */}
-          <div className="quick-icon">
-            <div style={{ display: `inline-block`, position: `relative`, right: `47px` }}>
-              { userLink }
-            </div>
-            <div style={{ display: `inline-block`, position: `relative`, right: `0px` }}>
-              <Link to="/">
-                <img
-                  style={{ width: `28px`, height: `28px` }}
-                  src={ CartIcon }
-                  alt="cartIcon"
-                />
-              </Link>
-            </div>
-          </div>        
-        </> }
-
-        {/* Mobile Web */}
-        { device === "mobile" && <>
-          <div className="mobile-menu">
-            {/* <BurgerIcon /> */}
-            <img
-              style={{ width: `20px`, height: `15px` }}
-              src={ BurgerIcon }
-              alt="burger"
-            />
           </div>
-        </> }
       </div>
+      </> }
     </header>
   )
 }
