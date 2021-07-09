@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {detailProduct} from '../../actions/productActions';
 
-import './ProductDetail.scss';
+import './ProductDetail.scoped.scss';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -15,20 +15,25 @@ const ProductDetail = () => {
 
     return () => {      
     }
-  }, []);
+  }, [dispatch, id]);
 
   return (
-    <section>
+    <section className="contents">
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <section>
+        <div className="details">
           <div>
             <img src={ product.image } />
           </div>
-        </section>
+          <div>
+            <div>{ product.name }</div>
+            <div>{ product.price }</div>
+            <div>{ product.description }</div>
+          </div>
+        </div>
       )} 
     </section>
   );

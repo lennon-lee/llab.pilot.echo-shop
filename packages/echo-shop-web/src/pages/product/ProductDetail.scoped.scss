@@ -1,0 +1,10 @@
+@import "../../styles/layout";
+@import "../../styles/colors";
+
+.contents {
+  @extend %default-page;
+
+  .details {
+    display: flex;
+  }
+}

@@ -17,13 +17,13 @@ const Main = () => {
   }, [dispatch]);
   
   return (
-    <section className="main-sec">
+    <section className="contents">
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <section className="main-list">
+        <div className="product-list">
           { products.map(product => (          
             <Product
               key={ product._id }
@@ -34,7 +34,7 @@ const Main = () => {
               price={ product.price }
             />
           )) }
-        </section>
+        </div>
       )}
     </section>
   );

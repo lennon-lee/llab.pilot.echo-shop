@@ -1,6 +1,7 @@
+@import "../../styles/layout";
 @import "../../styles/colors";
 
-.main-sec {
+.contents {
   min-height: 1024px;
   
   h3 {
@@ -9,8 +10,7 @@
     color: gray;
   }
 
-  .main-list {
-    padding-top: 140px;
+  .product-list {
     text-align: center;
   }
 }
