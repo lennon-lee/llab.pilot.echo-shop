@@ -1,7 +1,8 @@
 @import "../../styles/layout";
 @import "../../styles/colors";
 
-.contents {
+.main {
+  @extend %default-page;
   min-height: 1024px;
   
   h3 {

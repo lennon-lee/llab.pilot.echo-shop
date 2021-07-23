@@ -8,6 +8,9 @@ import Profile from './pages/profile/Profile';
 import Register from './pages/register/Register';
 import ProductDetail from './pages/product/ProductDetail';
 
+import './App.css';
+import './sass/main.scss';
+
 function App() {
   const isPC = useMediaQuery({
     query: "(min-width: 1024px)"

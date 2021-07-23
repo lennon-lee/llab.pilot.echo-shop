@@ -17,7 +17,7 @@ const Main = () => {
   }, [dispatch]);
   
   return (
-    <section className="contents">
+    <section className="main">
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
