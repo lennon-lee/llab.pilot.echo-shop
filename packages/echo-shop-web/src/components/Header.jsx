@@ -9,8 +9,6 @@ import CartIcon from '../assets/cart.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 
-import './Header.scss';
-
 const Header = ({ device }) => {
   // User
   const userData = useSelector((state) => state.userData);
@@ -48,10 +46,10 @@ const Header = ({ device }) => {
   }
 
   return (
-    <header>
-      <div className={`nav ${device}`}>
+    <div className='header'>
+      <div className={`header-navigation ${device}`}>
         {/* Logo */}
-        <div className="logo-wrapper">
+        <div className="header-navigation-logo">
           <Link to="/">
             <img
               style={{ width: `50px`, height: `50px` }}
@@ -62,9 +60,9 @@ const Header = ({ device }) => {
         </div>
 
         {/* Search */}
-        <div className="filter-wrapper">
+        <div className="header-navigation-filter">
           <form onSubmit={ submitHandler }>
-            <div className="filter-serarch">
+            <div className="header-navigation-filter-serarch">
               <input type="text" name="searchKeyword" onChange={ (e) => setSearchKeyword(e.target.value) } />
               <button type="submit">
                 <img
@@ -80,7 +78,7 @@ const Header = ({ device }) => {
         {/* PC Web */}
         { device === "pc" && <>         
         {/* Quick Icon */}
-        <div className="quick-icon">
+        <div className="header-navigation-quick-icon">
           <div style={{ display: `inline-block`, position: `relative`, right: `47px` }}>
             { userLink }
           </div>
@@ -98,7 +96,7 @@ const Header = ({ device }) => {
 
         {/* Mobile Web */}
         { device === "mobile" && <>
-        <div className="mobile-menu">
+        <div className="header-navigation-menu">
           {/* <BurgerIcon /> */}
           <img
             style={{ width: `20px`, height: `15px` }}
@@ -111,10 +109,10 @@ const Header = ({ device }) => {
       
       {/* PC Web */}
       { device === "pc" && <>
-      <div className={`category`}>
+      <div className={`header-category`}>
          {/* Menu */}
-          <div className="menu-wrapper">
-            <div className="menu-category">
+          <div className="header-category-menu">
+            <div className="header-category-menu-icon">
               {/* <BurgerIcon /> */}
               <img
                 style={{ width: `20px`, height: `15px` }}
@@ -122,19 +120,19 @@ const Header = ({ device }) => {
                 alt="burger"
               />
             </div>
-            <div className="menu-item">
+            <div className="header-category-menu-item">
               <Link to="/shirts">SHIRTS</Link>
             </div>
-            <div className="menu-item">
+            <div className="header-category-menu-item">
               <Link to="/pants">PANTS</Link>
             </div>
-            <div className="menu-item">
+            <div className="header-category-menu-item">
               <Link to="/dress">DRESS</Link>
             </div>
           </div>
       </div>
       </> }
-    </header>
+    </div>
   )
 }
 
