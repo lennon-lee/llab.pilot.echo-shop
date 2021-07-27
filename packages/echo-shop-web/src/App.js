@@ -2,11 +2,11 @@ import { Switch, Route } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
-import Home from './pages/home/Home';
-import Login from './pages/login/Login';
-import Profile from './pages/profile/Profile';
-import Register from './pages/register/Register';
-import ProductDetail from './pages/product/ProductDetail';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Profile from './pages/Profile';
+import Register from './pages/Register';
+import ProductDetail from './pages/ProductDetail';
 
 import './App.css';
 import './sass/main.scss';

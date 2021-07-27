@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { detailProduct } from '../../actions/productActions';
+import { detailProduct } from '../actions/productActions';
 
 const ProductDetail = () => {
   const { id } = useParams();
