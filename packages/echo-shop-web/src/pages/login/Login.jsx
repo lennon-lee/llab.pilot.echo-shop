@@ -3,8 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../../actions/userActions';
 
-import './Login.scss';
-
 const Login = () => {
   const history = useHistory();
   const [email, setEmail] = useState('');
@@ -29,8 +27,8 @@ const Login = () => {
   }
 
   return (
-    <section className="login-form">
-      <form onSubmit={ submitHandler } className="form-container" >
+    <section className="login">
+      <form onSubmit={ submitHandler } className="login-form">
         <div><h2>Login</h2></div>
         <div>
           {loading && <div>Loading...</div>}

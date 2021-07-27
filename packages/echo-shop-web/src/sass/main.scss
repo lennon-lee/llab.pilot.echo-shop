@@ -27,11 +27,15 @@
 
 // 5. Components
 @import
-  'components/buttons';
+  'components/buttons',
+  'components/product';
 
 // 6. Page-specific styles
 @import
   'pages/home',
+  'pages/login',
+  'pages/register',
+  'pages/profile',
   'pages/product-detail';
 
 // 7. Themes

@@ -1,8 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import './Product.scss';
-
 const Product = ({ id, src, name, brand, price }) => (
   <div className="product">
     <div className="product-cover">
@@ -14,12 +12,12 @@ const Product = ({ id, src, name, brand, price }) => (
         />
       </Link>
     </div>
-    <div className="product-wrap">
-      <div className="product-name">{ name }</div>
-      <div className="product-brand">{ brand }</div>
-      <div className="product-buy">
-        <div className="product-buy-price">${ price }</div>
-        <div className="product-buy-button">BUY NOW</div>
+    <div className="product-info">
+      <div className="product-info-name">{ name }</div>
+      <div className="product-info-brand">{ brand }</div>
+      <div className="product-info-buy">
+        <div className="product-info-buy-price">${ price }</div>
+        <div className="product-info-buy-button">BUY NOW</div>
       </div>
     </div>
   </div>

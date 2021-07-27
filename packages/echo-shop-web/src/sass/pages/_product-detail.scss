@@ -1,3 +1,7 @@
 .product-detail {
-  padding-top: 130px;
+  padding-top: 140px;
+
+  &-info {
+    display: flex;
+  }
 }

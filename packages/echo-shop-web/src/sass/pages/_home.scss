@@ -1,4 +1,14 @@
 .home {
   padding-top: 140px;
+  min-height: 1024px;
+
+  h3 {
+    margin: 0;
+    font-size: 16px;
+    color: gray;
+  }
+
+  &-list {
+    text-align: center;
+  }
 }
-// module scoped 방법 찾아보기 대안이나..

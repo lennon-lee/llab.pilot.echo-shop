@@ -13,7 +13,7 @@
 	margin-right: 20px;
 	margin-bottom: 40px;
 
-	.product-cover {
+	&-cover {
 		width: inherit;
 		text-align: center;
 		width: 30%;
@@ -21,10 +21,10 @@
 		max-width: 393px;
 	}
 	
-	.product-wrap {
+	&-info {
 		margin-bottom: 20px;
 
-		.product-name, .product-brand {
+		&-name, &-brand {
 			margin-left: 49px;
 			margin-top: 10px;
 			color: #030303;
@@ -32,18 +32,18 @@
 			width: 267px;
 		}
 
-		.product-buy {
+		&-buy {
 			margin-left: 49px;
 			margin-top: 25px;
 		}
-		.product-buy-price {
+		&-buy-price {
 			color: #9D8220;
 			font-size: 25px;
 			font-weight: 600;
 			vertical-align: middle;
 			display: inline-block;
 		}
-		.product-buy-button {
+		&-buy-button {
 			display: inline-block;
 			margin-left: 30px;
 			width: 150px;

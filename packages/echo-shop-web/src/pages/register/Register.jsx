@@ -3,8 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../../actions/userActions';
 
-import './Register.scss';
-
 const Register = () => {
   const history = useHistory();
   const [name, setName] = useState('');
@@ -32,8 +30,8 @@ const Register = () => {
   }
 
   return (
-    <section className="register-form">
-      <form onSubmit={ submitHandler } className="form-container" >
+    <section className="register">
+      <form onSubmit={ submitHandler } className="register-form">
         <div><h2>Register</h2></div>
         <div>
           {loading && <div>Loading...</div>}

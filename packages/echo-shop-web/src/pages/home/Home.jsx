@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../../actions/productActions';
-import Product from './components/Product';
+import Product from '../../components/Product';
 
-import './Main.scss';
-
-const Main = () => {
+const Home = () => {
   const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList;
   const dispatch = useDispatch();
@@ -17,13 +15,13 @@ const Main = () => {
   }, [dispatch]);
   
   return (
-    <section className="contents">
+    <section className="home">
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
         <div>{error}</div>
       ) : (
-        <div className="product-list">
+        <div className="home-list">
           { products.map(product => (          
             <Product
               key={ product._id }
@@ -40,4 +38,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;

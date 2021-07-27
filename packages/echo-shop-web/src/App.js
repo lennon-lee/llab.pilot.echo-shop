@@ -1,8 +1,8 @@
 import { Switch, Route } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Main from './pages/main/Main';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Profile from './pages/profile/Profile';
 import Register from './pages/register/Register';
@@ -37,9 +37,9 @@ function App() {
           <ProductDetail />
         </Route>
 
-        {/* Main */}
+        {/* Home */}
         <Route path="/">
-          <Main />
+          <Home />
         </Route>
       </Switch>
       <Footer device={ device }></Footer>
