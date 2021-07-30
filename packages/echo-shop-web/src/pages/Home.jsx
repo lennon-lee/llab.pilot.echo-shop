@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
-import Product from '../components/Product';
+import Product from '../components/Product.jsx';
 
 const Home = () => {
   const productList = useSelector((state) => state.productList);

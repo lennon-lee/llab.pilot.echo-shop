@@ -3,11 +3,7 @@
   "author": "lenon",
   "private": true,
   "devDependencies": {
-    "babel-plugin-react-scoped-css": "^1.1.1",
-    "lerna": "^3.22.1",
-    "scoped-css-loader": "^1.0.0"
+    "lerna": "^3.22.1"
   },
-  "dependencies": {
-    "eslint": "^7.28.0"
-  }
+  "dependencies": {}
 }
