@@ -1,13 +1,13 @@
 .footer {
-  background-color: #2B2835;
+  background-color: #2b2835;
   text-align: center;
-  
+
   &-link {
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 60px;
-    
+
     // mobile version
     &.mobile {
       flex-direction: column;
@@ -17,6 +17,7 @@
       vertical-align: top;
       margin-top: 50px;
     }
+
     &-common {
       margin-top: 55px;
       margin-left: 50px;
@@ -24,31 +25,32 @@
       text-align: left;
 
       &-type {
-        color: #FFFFFF;
+        color: #fff;
         font-size: 24px;
         font-weight: 600;
         line-height: 31px;
         margin-bottom: 8px;
       }
+
       &-title {
         a {
           display: block;
-          color: #B8B8B8;
+          color: #b8b8b8;
           font-size: 13px;
           font-weight: 500;
-          line-height: 22px;;
-          text-decoration: none;            
+          line-height: 22px;
+          text-decoration: none;
         }
       }
-    }    
+    }
   }
-  
+
   &-bottom {
     text-align: center;
-    color: #FFFFFF;
+    color: #fff;
     font-size: 12px;
     font-weight: 500;
     opacity: 31%;
     padding-bottom: 30px;
-  }  
+  }
 }

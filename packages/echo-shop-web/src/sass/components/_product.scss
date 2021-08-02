@@ -1,60 +1,62 @@
 .product {
-	display: inline-flex;
-	flex-direction: column;
-	justify-content: space-between;
-	width: 30%;
-	min-width: 333px;
-	max-width: 393px;
-	height: 560px;
-	text-align: left;
-	border: 1px solid #eaeaea;
-	padding-top: 18px;
-	margin-left: 20px;
-	margin-right: 20px;
-	margin-bottom: 40px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  min-width: 333px;
+  max-width: 393px;
+  height: 560px;
+  text-align: left;
+  border: 1px solid #eaeaea;
+  padding-top: 18px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 40px;
 
-	&-cover {
-		width: inherit;
-		text-align: center;
-		width: 30%;
-		min-width: 333px;
-		max-width: 393px;
-	}
-	
-	&-info {
-		margin-bottom: 20px;
+  &-cover {
+    width: inherit;
+    text-align: center;
+    min-width: 333px;
+    max-width: 393px;
+  }
 
-		&-name, &-brand {
-			margin-left: 49px;
-			margin-top: 10px;
-			color: #030303;
-			font-size: 14px;
-			width: 267px;
-		}
+  &-info {
+    margin-bottom: 20px;
 
-		&-buy {
-			margin-left: 49px;
-			margin-top: 25px;
-		}
-		&-buy-price {
-			color: #9D8220;
-			font-size: 25px;
-			font-weight: 600;
-			vertical-align: middle;
-			display: inline-block;
-		}
-		&-buy-button {
-			display: inline-block;
-			margin-left: 30px;
-			width: 150px;
-			height: 41px;
-			background-color: #000000;
-			color: #FFFFFF;
-			font-weight: 600;
-			text-align: center;
-			line-height: 41px;
-			border-radius: 20px;
-			cursor: pointer;
-		}
-	}
+    &-name,
+    &-brand {
+      margin-left: 49px;
+      margin-top: 10px;
+      color: #030303;
+      font-size: 14px;
+      width: 267px;
+    }
+
+    &-buy {
+      margin-left: 49px;
+      margin-top: 25px;
+    }
+
+    &-buy-price {
+      color: #9d8220;
+      font-size: 25px;
+      font-weight: 600;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    &-buy-button {
+      display: inline-block;
+      margin-left: 30px;
+      width: 150px;
+      height: 41px;
+      background-color: #000;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      line-height: 41px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  }
 }

@@ -20,13 +20,13 @@
       margin-bottom: 1rem;
       margin-top: 1rem;
     }
-  
+
     input {
       padding: 1rem;
       border: 0.1rem #c0c0c0 solid;
       border-radius: 0.5rem;
     }
-    
+
     .button {
       padding: 1rem;
       border: 0.1rem #808080 solid;
@@ -36,12 +36,14 @@
       &:hover {
         border: 0.1rem #404040 solid;
       }
+
       &.primary {
         background-color: $primary;
       }
+
       &.gray {
         background-color: $gray;
       }
-    }    
-  }  
+    }
+  }
 }
