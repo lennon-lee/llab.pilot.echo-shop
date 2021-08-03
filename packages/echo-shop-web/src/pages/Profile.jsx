@@ -24,7 +24,9 @@ const Profile = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(update({userId: userInfo._id, name, email, password}));
+    dispatch(update({
+      userId: userInfo._id, name, email, password,
+    }));
   };
   const logoutHandler = () => {
     dispatch(logout());
@@ -33,7 +35,7 @@ const Profile = () => {
 
   return (
     <section className="profile">
-      <form onSubmit={ submitHandler } className="profile-form">
+      <form onSubmit={submitHandler} className="profile-form">
         <div><h2>User Profile</h2></div>
         <div>
           {loading && <div>Loading...</div>}
@@ -42,11 +44,11 @@ const Profile = () => {
 
         <div>
           <label htmlFor="name">Name</label>
-          <input value={ name } type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
+          <input value={name} type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
         </div>
         <div>
           <label htmlFor="email">Email</label>
-          <input value={ email } type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
+          <input value={email} type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div>
           <label htmlFor="password">Password</label>
@@ -59,7 +61,7 @@ const Profile = () => {
           New to Echo Shop?
         </div>
         <div>
-          <button type="button" onClick={ logoutHandler } className="button gray">Logout</button>
+          <button type="button" onClick={logoutHandler} className="button gray">Logout</button>
         </div>
       </form>
     </section>

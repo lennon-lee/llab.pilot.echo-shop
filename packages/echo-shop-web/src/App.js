@@ -9,18 +9,17 @@ import Profile from './pages/Profile.jsx';
 import Register from './pages/Register.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
 
-// import './App.css';
 import './sass/main.scss';
 
 function App() {
   const isPC = useMediaQuery({
-    query: "(min-width: 1024px)"
+    query: '(min-width: 1024px)',
   });
-  const device = isPC ? "pc" : "mobile";
+  const device = isPC ? 'pc' : 'mobile';
 
   return (
     <div>
-      <Header device={ device }></Header>
+      <Header device={device} />
       <Switch>
         {/* Quick Icon */}
         <Route path="/login">
@@ -43,7 +42,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
-      <Footer device={ device }></Footer>
+      <Footer device={device} />
     </div>
   );
 }

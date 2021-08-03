@@ -4,7 +4,7 @@ import {
   PRODUCT_LIST_FAIL,
   PRODUCT_DETAIL_REQUEST,
   PRODUCT_DETAIL_SUCCESS,
-  PRODUCT_DETAIL_FAIL
+  PRODUCT_DETAIL_FAIL,
 } from '../constants/productConstants';
 
 const productListReducer = (state = { products: [] }, action) => {
@@ -18,7 +18,7 @@ const productListReducer = (state = { products: [] }, action) => {
     default:
       return state;
   }
-}
+};
 
 const productDetailReducer = (state = { product: [] }, action) => {
   switch (action.type) {
@@ -27,10 +27,10 @@ const productDetailReducer = (state = { product: [] }, action) => {
     case PRODUCT_DETAIL_SUCCESS:
       return { loading: false, product: action.payload };
     case PRODUCT_DETAIL_FAIL:
-      return { loading: false, error: action.payload }
+      return { loading: false, error: action.payload };
     default:
-      return state;    
+      return state;
   }
-}
+};
 
-export { productListReducer, productDetailReducer }
+export { productListReducer, productDetailReducer };

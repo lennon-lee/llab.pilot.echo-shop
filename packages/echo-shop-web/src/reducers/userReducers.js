@@ -1,7 +1,7 @@
 import {
   USER_ACCESS_REQUEST, USER_ACCESS_SUCCESS, USER_ACCESS_FAIL,
-  USER_EXIT
-} from "../constants/userConstatns";
+  USER_EXIT,
+} from '../constants/userConstatns';
 
 const userAccessReducer = (state = {}, action) => {
   switch (action.type) {
@@ -16,6 +16,6 @@ const userAccessReducer = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
-export { userAccessReducer }
+export { userAccessReducer };

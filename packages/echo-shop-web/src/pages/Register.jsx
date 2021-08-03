@@ -24,14 +24,14 @@ const Register = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(register(name, email, password));
-  }
+  };
   const loginHandler = () => {
     history.push('/login');
-  }
+  };
 
   return (
     <section className="register">
-      <form onSubmit={ submitHandler } className="register-form">
+      <form onSubmit={submitHandler} className="register-form">
         <div><h2>Register</h2></div>
         <div>
           {loading && <div>Loading...</div>}
@@ -39,15 +39,15 @@ const Register = () => {
         </div>
         <div>
           <label htmlFor="name">Name</label>
-          <input value={ name } type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
+          <input value={name} type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
         </div>
         <div>
           <label htmlFor="email">Email</label>
-          <input value={ email } type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
+          <input value={email} type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input value={ password } type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
+          <input value={password} type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
         </div>
         <div>
           <label htmlFor="re{p}assword">Re-Enter Password</label>
@@ -60,11 +60,11 @@ const Register = () => {
           Already have an account?
         </div>
         <div>
-        <button type="button" onClick={ loginHandler } className="button gray">Please log in</button>
+          <button type="button" onClick={loginHandler} className="button gray">Please log in</button>
         </div>
       </form>
     </section>
   );
-}
+};
 
 export default Register;

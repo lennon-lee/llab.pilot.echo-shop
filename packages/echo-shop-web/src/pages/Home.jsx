@@ -11,9 +11,9 @@ const Home = () => {
     dispatch(listProducts());
 
     return () => {
-    }
+    };
   }, [dispatch]);
-  
+
   return (
     <section className="home">
       {loading ? (
@@ -22,14 +22,14 @@ const Home = () => {
         <div>{error}</div>
       ) : (
         <div className="home-list">
-          { products.map(product => (          
+          { products.map((product) => (
             <Product
-              key={ product._id }
-              id={ product._id }
-              src={ product.image }
-              name={ product.name }
-              brand={ product.brand }
-              price={ product.price }
+              key={product._id}
+              id={product._id}
+              src={product.image}
+              name={product.name}
+              brand={product.brand}
+              price={product.price}
             />
           )) }
         </div>

@@ -11,8 +11,8 @@ const ProductDetail = () => {
   useEffect(() => {
     dispatch(detailProduct(id));
 
-    return () => {      
-    }
+    return () => {
+    };
   }, [dispatch, id]);
 
   return (
@@ -24,7 +24,7 @@ const ProductDetail = () => {
       ) : (
         <div className="product-detail-info">
           <div>
-            <img src={ product.image } alt="product" />
+            <img src={product.image} alt="product" />
           </div>
           <div>
             <div>{ product.name }</div>
@@ -32,9 +32,9 @@ const ProductDetail = () => {
             <div>{ product.description }</div>
           </div>
         </div>
-      )} 
+      )}
     </section>
   );
-}
+};
 
 export default ProductDetail;

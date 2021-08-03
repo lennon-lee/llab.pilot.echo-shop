@@ -24,11 +24,11 @@ const Login = () => {
   };
   const registerHandler = () => {
     history.push('/register');
-  }
+  };
 
   return (
     <section className="login">
-      <form onSubmit={ submitHandler } className="login-form">
+      <form onSubmit={submitHandler} className="login-form">
         <div><h2>Login</h2></div>
         <div>
           {loading && <div>Loading...</div>}
@@ -49,7 +49,7 @@ const Login = () => {
           New to Echo Shop?
         </div>
         <div>
-          <button type="button" onClick={ registerHandler } className="button gray">Create your echo shop account</button>
+          <button type="button" onClick={registerHandler} className="button gray">Create your echo shop account</button>
         </div>
       </form>
     </section>
