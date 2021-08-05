@@ -18,4 +18,4 @@ const userAccessReducer = (state = {}, action) => {
   }
 };
 
-export { userAccessReducer };
+export default userAccessReducer;

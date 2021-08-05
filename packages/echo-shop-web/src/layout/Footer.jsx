@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/logo.png';
 
@@ -67,5 +68,13 @@ const Footer = ({ device }) => (
     </div>
   </div>
 );
+
+Footer.propTypes = {
+  device: PropTypes.string,
+};
+
+Footer.defaultProps = {
+  device: 'pc',
+};
 
 export default Footer;

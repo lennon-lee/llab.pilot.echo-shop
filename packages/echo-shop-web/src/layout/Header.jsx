@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import BurgerIcon from '../assets/burger.png';
@@ -144,6 +145,14 @@ const Header = ({ device }) => {
       ) }
     </div>
   );
+};
+
+Header.propTypes = {
+  device: PropTypes.string,
+};
+
+Header.defaultProps = {
+  device: 'pc',
 };
 
 export default Header;

@@ -38,6 +38,11 @@ Product.propTypes = {
 };
 
 Product.defaultProps = {
+  id: '',
+  src: '',
+  name: '',
+  brand: '',
+  price: 0,
 };
 
 export default Product;

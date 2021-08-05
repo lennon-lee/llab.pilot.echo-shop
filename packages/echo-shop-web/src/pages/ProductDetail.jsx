@@ -17,11 +17,8 @@ const ProductDetail = () => {
 
   return (
     <section className="product-detail">
-      {loading ? (
-        <div>Loading...</div>
-      ) : error ? (
-        <div>{error}</div>
-      ) : (
+      {loading ? <div>Loading...</div> : <div>{error}</div>}
+      {product && (
         <div className="product-detail-info">
           <div>
             <img src={product.image} alt="product" />

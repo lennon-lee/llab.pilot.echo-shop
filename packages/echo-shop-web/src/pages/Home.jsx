@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
-import Product from '../components/Product.jsx';
+import Product from '../components/Product';
 
 const Home = () => {
   const productList = useSelector((state) => state.productList);
@@ -16,11 +16,8 @@ const Home = () => {
 
   return (
     <section className="home">
-      {loading ? (
-        <div>Loading...</div>
-      ) : error ? (
-        <div>{error}</div>
-      ) : (
+      {loading ? <div>Loading...</div> : <div>{error}</div>}
+      {products && (
         <div className="home-list">
           { products.map((product) => (
             <Product

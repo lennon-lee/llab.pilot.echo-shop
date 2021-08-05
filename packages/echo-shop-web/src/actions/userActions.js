@@ -9,7 +9,6 @@ const login = (email, password) => async (dispatch) => {
   dispatch({ type: USER_ACCESS_REQUEST, payload: { email, password } });
   try {
     const { data } = await Axios.post('/api/users/signin', { email, password });
-    console.log(data);
     dispatch({ type: USER_ACCESS_SUCCESS, payload: data });
     Cookie.set('userInfo', JSON.stringify(data));
   } catch (error) {
@@ -26,7 +25,6 @@ const register = (name, email, password) => async (dispatch) => {
   dispatch({ type: USER_ACCESS_REQUEST, payload: { name, email, password } });
   try {
     const { data } = await Axios.post('/api/users/register', { name, email, password });
-    console.log(data);
     dispatch({ type: USER_ACCESS_SUCCESS, payload: data });
     Cookie.set('userInfo', JSON.stringify(data));
   } catch (error) {
@@ -50,7 +48,6 @@ const update = ({
       { name, email, password },
       { headers: { Authorization: `Bearer ${userInfo.token}` } },
     );
-    alert('success update');
     dispatch({ type: USER_ACCESS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: USER_ACCESS_FAIL, payload: error.message });

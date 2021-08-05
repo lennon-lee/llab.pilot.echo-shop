@@ -3,9 +3,7 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import Cookie from 'js-cookie';
-import {
-  userAccessReducer,
-} from './reducers/userReducers';
+import userAccessReducer from './reducers/userReducers';
 import {
   productListReducer,
   productDetailReducer,
