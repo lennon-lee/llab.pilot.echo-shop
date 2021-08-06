@@ -88,7 +88,7 @@ const Header = ({ device }) => {
             <div style={{ display: 'inline-block', position: 'relative', right: '47px' }}>
               { userLink }
             </div>
-            <div style={{ display: 'inline-block', position: 'relative', right: '0px' }}>
+            <div style={{ display: 'inline-block', position: 'relative', right: '0' }}>
               <Link to="/">
                 <img
                   style={{ width: '28px', height: '28px' }}

@@ -3,7 +3,10 @@
 		"browser": true
 	},
 	"parser": "babel-eslint",
-	"extends": ["airbnb"],
+	"extends": [
+		"eslint:recommended",
+		"airbnb"
+	],
 	"rules": {
 		"jsx-a11y/label-has-associated-control": 0,
 		"react/jsx-filename-extension": 0,

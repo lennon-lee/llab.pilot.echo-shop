@@ -17,7 +17,7 @@ const config = {
     port: 8081,
   },
   plugins: [
-    new StyleLintPlugin(),
+    new StyleLintPlugin({ fix: true }),
   ],
 };
 
