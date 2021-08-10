@@ -18,16 +18,27 @@ const ProductDetail = () => {
     <section className="product-detail">
       {loading ? <div>Loading...</div> : <div>{error}</div>}
       {product && (
-        <div className="product-detail-info">
-          <div>
-            <img src={product.image} alt="product" />
+        <>
+          <div className="product-detail-main">
+            <div className="product-detail-main-cover">
+              <img src={product.image} alt="product" />
+            </div>
+            <div className="product-detail-main-info">
+              <div className="product-detail-main-info-name">
+                {product.name}
+              </div>
+              <div className="product-detail-main-info-price">
+                <span className="label">Price: </span>
+                <span className="label-value">${product.price}</span>
+              </div>
+              <div className="product-detail-main-info-description">
+                {product.description}
+              </div>
+            </div>
+            <div className="product-detail-main-buy">Add to Cart</div>
           </div>
-          <div>
-            <div>{product.name}</div>
-            <div>{product.price}</div>
-            <div>{product.description}</div>
-          </div>
-        </div>
+          <div className="product-detail-review">Reviews</div>
+        </>
       )}
     </section>
   );
