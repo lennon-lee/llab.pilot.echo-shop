@@ -8,7 +8,7 @@ const Profile = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const userData = useSelector((state) => state.userData);
+  const userData = useSelector(state => state.userData);
   const { loading, userInfo, error } = userData;
   const dispatch = useDispatch();
 
@@ -18,15 +18,19 @@ const Profile = () => {
       setEmail(userInfo.email);
     }
 
-    return () => {
-    };
+    return () => {};
   }, [history, userInfo]);
 
-  const submitHandler = (e) => {
+  const submitHandler = e => {
     e.preventDefault();
-    dispatch(update({
-      userId: userInfo._id, name, email, password,
-    }));
+    dispatch(
+      update({
+        userId: userInfo._id,
+        name,
+        email,
+        password,
+      }),
+    );
   };
   const logoutHandler = () => {
     dispatch(logout());
@@ -36,7 +40,9 @@ const Profile = () => {
   return (
     <section className="profile">
       <form onSubmit={submitHandler} className="profile-form">
-        <div><h2>User Profile</h2></div>
+        <div>
+          <h2>User Profile</h2>
+        </div>
         <div>
           {loading && <div>Loading...</div>}
           {error && <div>{error}</div>}
@@ -44,24 +50,43 @@ const Profile = () => {
 
         <div>
           <label htmlFor="name">Name</label>
-          <input value={name} type="text" name="name" id="name" onChange={(e) => setName(e.target.value)} />
+          <input
+            value={name}
+            type="text"
+            name="name"
+            id="name"
+            onChange={e => setName(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="email">Email</label>
-          <input value={email} type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)} />
+          <input
+            value={email}
+            type="email"
+            name="email"
+            id="email"
+            onChange={e => setEmail(e.target.value)}
+          />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            onChange={e => setPassword(e.target.value)}
+          />
         </div>
         <div>
-          <button type="submit" className="button primary">Update</button>
+          <button type="submit" className="button primary">
+            Update
+          </button>
         </div>
+        <div>New to Echo Shop?</div>
         <div>
-          New to Echo Shop?
-        </div>
-        <div>
-          <button type="button" onClick={logoutHandler} className="button gray">Logout</button>
+          <button type="button" onClick={logoutHandler} className="button gray">
+            Logout
+          </button>
         </div>
       </form>
     </section>

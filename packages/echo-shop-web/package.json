@@ -7,6 +7,8 @@
     "dev": "NODE_ENV=DEVELOPMENT webpack --config webpack.dev.js",
     "build": "NODE_ENV=PRODUCTION webpack --config webpack.prod.js",
     "lint:eslint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
+    "prettier:check": "prettier --check './src/**/*.{ts,tsx,js,jsx}'",
+    "prettier:write": "prettier --write './src/**/*.{ts,tsx,js,jsx}'",
     "lint:stylelint:fix": "stylelint --fix './src/**/*.{css,scss}'"
   },
   "devDependencies": {
@@ -25,9 +27,11 @@
     "css-minimizer-webpack-plugin": "^3.0.2",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "18.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^1.7.0",
     "handlebars": "^4.7.7",
@@ -37,6 +41,7 @@
     "node-sass": "^6.0.1",
     "postcss": "^8.3.5",
     "postcss-loader": "^6.1.1",
+    "prettier": "^2.3.2",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.0.0",
     "stylelint": "^13.13.1",

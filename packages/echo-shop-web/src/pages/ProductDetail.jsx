@@ -5,14 +5,13 @@ import { detailProduct } from '../actions/productActions';
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const productDetail = useSelector((state) => state.productDetail);
+  const productDetail = useSelector(state => state.productDetail);
   const { product, loading, error } = productDetail;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(detailProduct(id));
 
-    return () => {
-    };
+    return () => {};
   }, [dispatch, id]);
 
   return (
@@ -24,9 +23,9 @@ const ProductDetail = () => {
             <img src={product.image} alt="product" />
           </div>
           <div>
-            <div>{ product.name }</div>
-            <div>{ product.price }</div>
-            <div>{ product.description }</div>
+            <div>{product.name}</div>
+            <div>{product.price}</div>
+            <div>{product.description}</div>
           </div>
         </div>
       )}

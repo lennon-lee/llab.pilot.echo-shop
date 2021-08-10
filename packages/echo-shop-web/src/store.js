@@ -1,6 +1,4 @@
-import {
-  createStore, combineReducers, applyMiddleware, compose,
-} from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import Cookie from 'js-cookie';
 import userAccessReducer from './reducers/userReducers';

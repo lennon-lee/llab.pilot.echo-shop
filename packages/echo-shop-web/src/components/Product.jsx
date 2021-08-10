@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Product = ({
-  id, src, name, brand, price,
-}) => (
+const Product = ({ id, src, name, brand, price }) => (
   <div className="product">
     <div className="product-cover">
       <Link to={`/product/productDetail/${id}`}>
@@ -16,13 +14,10 @@ const Product = ({
       </Link>
     </div>
     <div className="product-info">
-      <div className="product-info-name">{ name }</div>
-      <div className="product-info-brand">{ brand }</div>
+      <div className="product-info-name">{name}</div>
+      <div className="product-info-brand">{brand}</div>
       <div className="product-info-buy">
-        <div className="product-info-buy-price">
-          $
-          { price }
-        </div>
+        <div className="product-info-buy-price">${price}</div>
         <div className="product-info-buy-button">BUY NOW</div>
       </div>
     </div>

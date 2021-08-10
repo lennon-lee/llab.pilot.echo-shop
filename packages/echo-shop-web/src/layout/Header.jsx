@@ -12,7 +12,7 @@ import { listProducts } from '../actions/productActions';
 
 const Header = ({ device }) => {
   // User
-  const userData = useSelector((state) => state.userData);
+  const userData = useSelector(state => state.userData);
   const { userInfo } = userData;
   let userLink;
   if (userInfo) {
@@ -45,7 +45,7 @@ const Header = ({ device }) => {
   const category = '';
   const [searchKeyword, setSearchKeyword] = useState('');
   const dispatch = useDispatch();
-  const submitHandler = (e) => {
+  const submitHandler = e => {
     e.preventDefault();
     dispatch(listProducts(category, searchKeyword, ''));
   };
@@ -68,7 +68,11 @@ const Header = ({ device }) => {
         <div className="header-navigation-filter">
           <form onSubmit={submitHandler}>
             <div className="header-navigation-filter-serarch">
-              <input type="text" name="searchKeyword" onChange={(e) => setSearchKeyword(e.target.value)} />
+              <input
+                type="text"
+                name="searchKeyword"
+                onChange={e => setSearchKeyword(e.target.value)}
+              />
               <button type="submit">
                 <img
                   style={{ width: '18px', height: '18px' }}
@@ -81,48 +85,42 @@ const Header = ({ device }) => {
         </div>
 
         {/* PC Web */}
-        { device === 'pc' && (
-        <>
-          {/* Quick Icon */}
-          <div className="header-navigation-quick-icon">
-            <div style={{ display: 'inline-block', position: 'relative', right: '47px' }}>
-              { userLink }
+        {device === 'pc' && (
+          <>
+            {/* Quick Icon */}
+            <div className="header-navigation-quick-icon">
+              <div
+                style={{
+                  display: 'inline-block',
+                  position: 'relative',
+                  right: '47px',
+                }}
+              >
+                {userLink}
+              </div>
+              <div
+                style={{
+                  display: 'inline-block',
+                  position: 'relative',
+                  right: '0',
+                }}
+              >
+                <Link to="/">
+                  <img
+                    style={{ width: '28px', height: '28px' }}
+                    src={CartIcon}
+                    alt="cartIcon"
+                  />
+                </Link>
+              </div>
             </div>
-            <div style={{ display: 'inline-block', position: 'relative', right: '0' }}>
-              <Link to="/">
-                <img
-                  style={{ width: '28px', height: '28px' }}
-                  src={CartIcon}
-                  alt="cartIcon"
-                />
-              </Link>
-            </div>
-          </div>
-        </>
-        ) }
+          </>
+        )}
 
         {/* Mobile Web */}
-        { device === 'mobile' && (
-        <>
-          <div className="header-navigation-menu">
-            {/* <BurgerIcon /> */}
-            <img
-              style={{ width: '20px', height: '15px' }}
-              src={BurgerIcon}
-              alt="burger"
-            />
-          </div>
-        </>
-        ) }
-      </div>
-
-      {/* PC Web */}
-      { device === 'pc' && (
-      <>
-        <div className="header-category">
-          {/* Menu */}
-          <div className="header-category-menu">
-            <div className="header-category-menu-icon">
+        {device === 'mobile' && (
+          <>
+            <div className="header-navigation-menu">
               {/* <BurgerIcon /> */}
               <img
                 style={{ width: '20px', height: '15px' }}
@@ -130,19 +128,37 @@ const Header = ({ device }) => {
                 alt="burger"
               />
             </div>
-            <div className="header-category-menu-item">
-              <Link to="/shirts">SHIRTS</Link>
-            </div>
-            <div className="header-category-menu-item">
-              <Link to="/pants">PANTS</Link>
-            </div>
-            <div className="header-category-menu-item">
-              <Link to="/dress">DRESS</Link>
+          </>
+        )}
+      </div>
+
+      {/* PC Web */}
+      {device === 'pc' && (
+        <>
+          <div className="header-category">
+            {/* Menu */}
+            <div className="header-category-menu">
+              <div className="header-category-menu-icon">
+                {/* <BurgerIcon /> */}
+                <img
+                  style={{ width: '20px', height: '15px' }}
+                  src={BurgerIcon}
+                  alt="burger"
+                />
+              </div>
+              <div className="header-category-menu-item">
+                <Link to="/shirts">SHIRTS</Link>
+              </div>
+              <div className="header-category-menu-item">
+                <Link to="/pants">PANTS</Link>
+              </div>
+              <div className="header-category-menu-item">
+                <Link to="/dress">DRESS</Link>
+              </div>
             </div>
           </div>
-        </div>
-      </>
-      ) }
+        </>
+      )}
     </div>
   );
 };

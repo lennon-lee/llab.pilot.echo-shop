@@ -8,22 +8,22 @@ import {
   PRODUCT_DETAIL_FAIL,
 } from '../constants/productConstants';
 
-const listProducts = (
-  category = '',
-  searchKeyword = '',
-  sortOrder = '',
-) => async (dispatch) => {
-  try {
-    dispatch({ type: PRODUCT_LIST_REQUEST });
+const listProducts =
+  (category = '', searchKeyword = '', sortOrder = '') =>
+  async dispatch => {
+    try {
+      dispatch({ type: PRODUCT_LIST_REQUEST });
 
-    const { data } = await axios.get(`/api/products?category=${category}&searchKeyword=${searchKeyword}&sortOrder=${sortOrder}`);
-    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
-  }
-};
+      const { data } = await axios.get(
+        `/api/products?category=${category}&searchKeyword=${searchKeyword}&sortOrder=${sortOrder}`,
+      );
+      dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
+    }
+  };
 
-const detailProduct = (productId) => async (dispatch) => {
+const detailProduct = productId => async dispatch => {
   try {
     dispatch({ type: PRODUCT_DETAIL_REQUEST, payload: productId });
 
