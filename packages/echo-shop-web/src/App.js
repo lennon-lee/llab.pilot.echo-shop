@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
 import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/Cart';
 
 import './sass/main.scss';
 
@@ -35,6 +36,11 @@ function App() {
         {/* Product */}
         <Route path="/product/productDetail/:id">
           <ProductDetail />
+        </Route>
+
+        {/* Cart */}
+        <Route path="/cart/:id">
+          <Cart />
         </Route>
 
         {/* Home */}
