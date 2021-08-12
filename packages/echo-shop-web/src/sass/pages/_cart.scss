@@ -1,3 +1,22 @@
 .cart {
-  display: inherit;
+  display: flex;
+  margin: 140px 18px 50px;
+  min-height: 400px;
+
+  &-shopping {
+    width: 75%;
+    border: 1px #ccc solid;
+    padding: 18px;
+
+    &-list {
+      border: 1px #ccc solid;
+    }
+  }
+
+  &-buy {
+    width: 25%;
+    margin-left: 20px;
+    border: 1px #ccc solid;
+    padding: 18px;
+  }
 }

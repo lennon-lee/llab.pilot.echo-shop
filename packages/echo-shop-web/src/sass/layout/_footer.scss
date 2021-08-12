@@ -1,6 +1,7 @@
 .footer {
+  display: flex;
+  flex-direction: column;
   background-color: #2b2835;
-  text-align: center;
 
   &-link {
     display: flex;
@@ -14,6 +15,8 @@
     }
 
     &-logo {
+      display: flex;
+      justify-content: center;
       vertical-align: top;
       margin-top: 50px;
     }

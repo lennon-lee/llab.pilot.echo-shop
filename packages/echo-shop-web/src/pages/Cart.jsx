@@ -12,7 +12,13 @@ const Cart = () => {
 
   return (
     <section className="cart">
-      <div>test</div>
+      <div className="cart-shopping">
+        <div>
+          <h1>Shopping Cart</h1>
+        </div>
+        <div className="cart-shopping-list">list</div>
+      </div>
+      <div className="cart-buy">Proceed to Checkout</div>
     </section>
   );
 };
