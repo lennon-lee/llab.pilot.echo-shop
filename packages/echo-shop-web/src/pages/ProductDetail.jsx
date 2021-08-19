@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { detailProduct } from '../actions/productActions';
+import addToCart from '../actions/cartActions';
 
 const ProductDetail = () => {
   const [qty, setQty] = useState(1);
@@ -15,7 +16,8 @@ const ProductDetail = () => {
 
     return () => {};
   }, [dispatch, id]);
-  const addToCart = () => {
+  const handleAddToCart = () => {
+    dispatch(addToCart(id, qty));
     history.push(`/cart/${id}?qty=${qty}`);
   };
 
@@ -63,7 +65,7 @@ const ProductDetail = () => {
               </div>
               <div className="product-detail-main-buy-cart">
                 {product.countInStock > 0 && (
-                  <button type="button" onClick={addToCart}>
+                  <button type="button" onClick={handleAddToCart}>
                     Add to Cart
                   </button>
                 )}

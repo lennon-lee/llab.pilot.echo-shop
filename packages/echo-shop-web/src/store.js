@@ -6,15 +6,19 @@ import {
   productListReducer,
   productDetailReducer,
 } from './reducers/productReducers';
+import cartReducer from './reducers/cartReducers';
 
 const userInfo = Cookie.getJSON('userInfo') || null;
+const cartItems = Cookie.getJSON('cartItems') || [];
 
 const initialState = {
   userData: { userInfo },
+  cartData: { cartItems, shipping: {}, payment: {} },
 };
 
 const reducer = combineReducers({
   userData: userAccessReducer,
+  cartData: cartReducer,
   productList: productListReducer,
   productDetail: productDetailReducer,
 });

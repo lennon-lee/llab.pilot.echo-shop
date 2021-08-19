@@ -9,7 +9,26 @@
     padding: 18px;
 
     &-list {
-      border: 1px #ccc solid;
+      &-item {
+        display: flex;
+        border: 1px #ccc solid;
+        padding: 10px;
+        margin-bottom: 15px;
+
+        &-contents {
+          margin-left: 10px;
+          line-height: 30px;
+
+          &-title {
+            font-size: 20px;
+          }
+
+          &-price {
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+      }
     }
   }
 
