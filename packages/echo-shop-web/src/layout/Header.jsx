@@ -105,7 +105,7 @@ const Header = ({ device }) => {
                   right: '0',
                 }}
               >
-                <Link to="/">
+                <Link to="/cart">
                   <img
                     style={{ width: '28px', height: '28px' }}
                     src={CartIcon}

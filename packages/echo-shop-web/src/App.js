@@ -39,7 +39,7 @@ function App() {
         </Route>
 
         {/* Cart */}
-        <Route path="/cart/:id">
+        <Route path="/cart">
           <Cart />
         </Route>
 
