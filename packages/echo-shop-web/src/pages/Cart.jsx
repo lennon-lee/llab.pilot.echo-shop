@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import qs from 'qs';
 import { useDispatch, useSelector } from 'react-redux';
 import addToCart from '../actions/cartActions';
 
 const Cart = () => {
+  const [qtyData, setQtyData] = useState(new Map());
   const { id } = useParams();
   const query = qs.parse(useLocation().search, {
     ignoreQueryPrefix: true,
@@ -12,10 +13,17 @@ const Cart = () => {
   const cartData = useSelector(state => state.cartData);
   const { cartItems } = cartData;
   const dispatch = useDispatch();
+  const upsertQty = (key, value) => {
+    setQtyData(prev => new Map(prev).set(key, value));
+  };
+
+  useEffect(() => {
+    if (qtyData.size === 0) {
+      cartItems.map(item => upsertQty(item.product, item.qty));
+    }
+  }, [dispatch]);
   console.log(id);
   console.log(query);
-  console.log(cartData);
-  console.log(cartItems);
 
   return (
     <section className="cart">
@@ -41,10 +49,8 @@ const Cart = () => {
                   </div>
                   <div>
                     <select
-                      value={item.qty}
-                      onChange={e =>
-                        dispatch(addToCart(item.product, e.target.value))
-                      }
+                      value={qtyData.get(item.product)}
+                      onChange={e => upsertQty(item.product, e.target.value)}
                     >
                       {[...Array(item.countInStock).keys()].map(x => (
                         <option key={x + 1} value={x + 1}>
@@ -52,6 +58,16 @@ const Cart = () => {
                         </option>
                       ))}
                     </select>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        dispatch(
+                          addToCart(item.product, qtyData.get(item.product)),
+                        )
+                      }
+                    >
+                      Update
+                    </button>
                     <button type="button">Delete</button>
                   </div>
                 </div>
