@@ -1,29 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
-import qs from 'qs';
 import { useDispatch, useSelector } from 'react-redux';
 import addToCart from '../actions/cartActions';
 
 const Cart = () => {
   const [qtyData, setQtyData] = useState(new Map());
-  const { id } = useParams();
-  const query = qs.parse(useLocation().search, {
-    ignoreQueryPrefix: true,
-  });
   const cartData = useSelector(state => state.cartData);
   const { cartItems } = cartData;
+  console.log(cartItems);
   const dispatch = useDispatch();
   const upsertQty = (key, value) => {
     setQtyData(prev => new Map(prev).set(key, value));
   };
 
   useEffect(() => {
-    if (qtyData.size === 0) {
-      cartItems.map(item => upsertQty(item.product, item.qty));
-    }
+    cartItems.map(item => upsertQty(item.product, item.qty));
+
+    return () => {};
   }, [dispatch]);
-  console.log(id);
-  console.log(query);
 
   return (
     <section className="cart">

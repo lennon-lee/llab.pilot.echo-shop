@@ -7,7 +7,7 @@ import {
   // CART_SAVE_PAYMENT
 } from '../constants/cartConstants';
 
-const addToCart = (productId, qty) => async (dispatch, getState) => {
+const addToCart = (productId, qty, callback) => async (dispatch, getState) => {
   try {
     console.log(productId);
     console.log(qty);
@@ -27,7 +27,12 @@ const addToCart = (productId, qty) => async (dispatch, getState) => {
     const {
       cartData: { cartItems },
     } = getState();
+    console.log(cartItems);
     Cookie.set('cartItems', JSON.stringify(cartItems));
+
+    if (callback) {
+      callback();
+    }
   } catch (error) {
     console.error(error);
   }

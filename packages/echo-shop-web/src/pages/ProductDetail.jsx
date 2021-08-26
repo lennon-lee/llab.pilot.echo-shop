@@ -16,9 +16,11 @@ const ProductDetail = () => {
 
     return () => {};
   }, [dispatch, id]);
+  const moveCartPage = () => {
+    history.push(`/cart`);
+  };
   const handleAddToCart = () => {
-    dispatch(addToCart(id, qty));
-    history.push(`/cart/${id}?qty=${qty}`);
+    dispatch(addToCart(id, qty, moveCartPage));
   };
 
   return (
