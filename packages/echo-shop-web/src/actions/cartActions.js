@@ -2,17 +2,14 @@ import axios from 'axios';
 import Cookie from 'js-cookie';
 import {
   CART_ADD_ITEM,
-  // CART_REMOVE_ITEM,
+  CART_REMOVE_ITEM,
   // CART_SAVE_SHIPPING,
   // CART_SAVE_PAYMENT
 } from '../constants/cartConstants';
 
 const addToCart = (productId, qty, callback) => async (dispatch, getState) => {
   try {
-    console.log(productId);
-    console.log(qty);
     const { data } = await axios.get(`/api/products/${productId}`);
-    console.log(data);
     dispatch({
       type: CART_ADD_ITEM,
       payload: {
@@ -27,7 +24,6 @@ const addToCart = (productId, qty, callback) => async (dispatch, getState) => {
     const {
       cartData: { cartItems },
     } = getState();
-    console.log(cartItems);
     Cookie.set('cartItems', JSON.stringify(cartItems));
 
     if (callback) {
@@ -38,4 +34,17 @@ const addToCart = (productId, qty, callback) => async (dispatch, getState) => {
   }
 };
 
-export default addToCart;
+const removeFromCart = productId => async (dispatch, getState) => {
+  try {
+    dispatch({ type: CART_REMOVE_ITEM, payload: productId });
+    const {
+      cartData: { cartItems },
+    } = getState();
+    console.log(cartItems);
+    Cookie.set('cartItems', JSON.stringify(cartItems));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export { addToCart, removeFromCart };

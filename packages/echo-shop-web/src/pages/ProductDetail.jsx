@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { detailProduct } from '../actions/productActions';
-import addToCart from '../actions/cartActions';
+import { addToCart } from '../actions/cartActions';
 
 const ProductDetail = () => {
   const [qty, setQty] = useState(1);

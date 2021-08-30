@@ -1,22 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import addToCart from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 
 const Cart = () => {
   const [qtyData, setQtyData] = useState(new Map());
   const cartData = useSelector(state => state.cartData);
   const { cartItems } = cartData;
-  console.log(cartItems);
   const dispatch = useDispatch();
   const upsertQty = (key, value) => {
     setQtyData(prev => new Map(prev).set(key, value));
   };
 
   useEffect(() => {
-    cartItems.map(item => upsertQty(item.product, item.qty));
+    // cart item 갯수 변경시 qtyData 갯수 일치
+    const resultQtyData = new Map();
+    qtyData.forEach((value, key) => {
+      if (cartItems.find(x => x.product === key)) {
+        resultQtyData[key] = value;
+      }
+    });
+    setQtyData(resultQtyData);
 
+    // cart item 정보 갱신
+    cartItems.map(item => upsertQty(item.product, item.qty));
     return () => {};
-  }, [dispatch]);
+  }, [cartItems]);
 
   return (
     <section className="cart">
@@ -61,7 +69,12 @@ const Cart = () => {
                     >
                       Update
                     </button>
-                    <button type="button">Delete</button>
+                    <button
+                      type="button"
+                      onClick={() => dispatch(removeFromCart(item.product))}
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
               </div>
