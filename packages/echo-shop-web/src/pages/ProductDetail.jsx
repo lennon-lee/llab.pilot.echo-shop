@@ -29,9 +29,9 @@ const ProductDetail = ({ device }) => {
       {loading ? <div>Loading...</div> : <div>{error}</div>}
       {product && (
         <>
-          <div className="product-detail-main">
+          <div className={`product-detail-main ${device}`}>
             <div className="product-detail-main-cover">
-              <img src={product.image} alt="product" />
+              <img className={device} src={product.image} alt="product" />
             </div>
             <div className="product-detail-main-info">
               <div className="product-detail-main-info-name">
