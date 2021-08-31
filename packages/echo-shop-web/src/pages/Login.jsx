@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { login } from '../actions/userActions';
 
-const Login = () => {
+const Login = ({ device }) => {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,7 +27,7 @@ const Login = () => {
   };
 
   return (
-    <section className="login">
+    <section className={`login ${device}`}>
       <form onSubmit={submitHandler} className="login-form">
         <div>
           <h2>Login</h2>
@@ -71,6 +72,14 @@ const Login = () => {
       </form>
     </section>
   );
+};
+
+Login.propTypes = {
+  device: PropTypes.string,
+};
+
+Login.defaultProps = {
+  device: 'pc',
 };
 
 export default Login;

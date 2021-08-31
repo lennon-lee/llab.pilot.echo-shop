@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { detailProduct } from '../actions/productActions';
 import { addToCart } from '../actions/cartActions';
 
-const ProductDetail = () => {
+const ProductDetail = ({ device }) => {
   const [qty, setQty] = useState(1);
   const { id } = useParams();
   const history = useHistory();
@@ -24,7 +25,7 @@ const ProductDetail = () => {
   };
 
   return (
-    <section className="product-detail">
+    <section className={`product-detail ${device}`}>
       {loading ? <div>Loading...</div> : <div>{error}</div>}
       {product && (
         <>
@@ -79,6 +80,14 @@ const ProductDetail = () => {
       )}
     </section>
   );
+};
+
+ProductDetail.propTypes = {
+  device: PropTypes.string,
+};
+
+ProductDetail.defaultProps = {
+  device: 'pc',
 };
 
 export default ProductDetail;

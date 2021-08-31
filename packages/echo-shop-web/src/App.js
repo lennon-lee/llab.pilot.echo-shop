@@ -24,28 +24,28 @@ function App() {
       <Switch>
         {/* Quick Icon */}
         <Route path="/login">
-          <Login />
+          <Login device={device} />
         </Route>
         <Route path="/profile">
-          <Profile />
+          <Profile device={device} />
         </Route>
         <Route path="/register">
-          <Register />
+          <Register device={device} />
         </Route>
 
         {/* Product */}
         <Route path="/product/productDetail/:id">
-          <ProductDetail />
+          <ProductDetail device={device} />
         </Route>
 
         {/* Cart */}
         <Route path="/cart">
-          <Cart />
+          <Cart device={device} />
         </Route>
 
         {/* Home */}
         <Route path="/">
-          <Home />
+          <Home device={device} />
         </Route>
       </Switch>
       <Footer device={device} />

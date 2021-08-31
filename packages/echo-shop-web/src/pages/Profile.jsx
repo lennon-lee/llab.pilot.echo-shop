@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { update, logout } from '../actions/userActions';
 
-const Profile = () => {
+const Profile = ({ device }) => {
   const history = useHistory();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -38,7 +39,7 @@ const Profile = () => {
   };
 
   return (
-    <section className="profile">
+    <section className={`profile ${device}`}>
       <form onSubmit={submitHandler} className="profile-form">
         <div>
           <h2>User Profile</h2>
@@ -91,6 +92,14 @@ const Profile = () => {
       </form>
     </section>
   );
+};
+
+Profile.propTypes = {
+  device: PropTypes.string,
+};
+
+Profile.defaultProps = {
+  device: 'pc',
 };
 
 export default Profile;

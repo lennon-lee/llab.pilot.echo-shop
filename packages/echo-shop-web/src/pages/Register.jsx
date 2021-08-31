@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from '../actions/userActions';
 
-const Register = () => {
+const Register = ({ device }) => {
   const history = useHistory();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -29,7 +30,7 @@ const Register = () => {
   };
 
   return (
-    <section className="register">
+    <section className={`register ${device}`}>
       <form onSubmit={submitHandler} className="register-form">
         <div>
           <h2>Register</h2>
@@ -92,6 +93,14 @@ const Register = () => {
       </form>
     </section>
   );
+};
+
+Register.propTypes = {
+  device: PropTypes.string,
+};
+
+Register.defaultProps = {
+  device: 'pc',
 };
 
 export default Register;

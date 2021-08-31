@@ -2,8 +2,13 @@
   display: flex;
   justify-content: center;
   height: 100%;
-  padding-top: 100px;
-  padding-bottom: 50px;
+  margin-top: 93px;
+  padding: 47px 18px 50px;
+  background-color: #edefef;
+
+  &.mobile {
+    margin-top: 62px;
+  }
 
   &-form {
     display: flex;
@@ -13,6 +18,7 @@
     border: 0.1rem #c0c0c0 solid;
     border-radius: 0.5rem;
     list-style-type: none;
+    background-color: white;
 
     div {
       display: flex;

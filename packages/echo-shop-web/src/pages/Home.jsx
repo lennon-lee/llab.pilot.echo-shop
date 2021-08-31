@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 import Product from '../components/Product';
 
-const Home = () => {
+const Home = ({ device }) => {
   const productList = useSelector(state => state.productList);
   const { products, loading, error } = productList;
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <section className="home">
+    <section className={`home ${device}`}>
       {loading ? <div>Loading...</div> : <div>{error}</div>}
       {products && (
         <div className="home-list">
@@ -32,6 +33,14 @@ const Home = () => {
       )}
     </section>
   );
+};
+
+Home.propTypes = {
+  device: PropTypes.string,
+};
+
+Home.defaultProps = {
+  device: 'pc',
 };
 
 export default Home;

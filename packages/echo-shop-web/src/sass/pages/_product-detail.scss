@@ -1,5 +1,11 @@
 .product-detail {
-  margin: 140px 18px 18px;
+  margin-top: 93px;
+  padding: 47px 18px 18px;
+  background-color: #edefef;
+
+  &.mobile {
+    margin-top: 62px;
+  }
 
   &-main {
     display: flex;
@@ -48,6 +54,7 @@
       border-radius: 5px;
       padding: 14px 18px;
       line-height: 30px;
+      background-color: white;
 
       &-price {
         .label-value {
@@ -88,5 +95,6 @@
     margin-top: 50px;
     padding-top: 20px;
     height: 400px;
+    background-color: white;
   }
 }

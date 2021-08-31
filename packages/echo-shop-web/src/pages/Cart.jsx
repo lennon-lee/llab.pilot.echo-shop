@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 
-const Cart = () => {
+const Cart = ({ device }) => {
   const [qtyData, setQtyData] = useState(new Map());
   const cartData = useSelector(state => state.cartData);
   const { cartItems } = cartData;
@@ -27,7 +28,7 @@ const Cart = () => {
   }, [cartItems]);
 
   return (
-    <section className="cart">
+    <section className={`cart ${device}`}>
       <div className="cart-shopping">
         <div>
           <h1>Shopping Cart</h1>
@@ -85,6 +86,14 @@ const Cart = () => {
       <div className="cart-buy">Proceed to Checkout</div>
     </section>
   );
+};
+
+Cart.propTypes = {
+  device: PropTypes.string,
+};
+
+Cart.defaultProps = {
+  device: 'pc',
 };
 
 export default Cart;
