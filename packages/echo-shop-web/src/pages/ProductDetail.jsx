@@ -75,6 +75,7 @@ const ProductDetail = ({ device }) => {
               </div>
             </div>
           </div>
+          <div className="product-detail-space" />
           <div className="product-detail-review">Reviews</div>
         </>
       )}

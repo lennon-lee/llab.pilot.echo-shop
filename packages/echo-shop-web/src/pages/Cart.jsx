@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 
@@ -38,13 +39,20 @@ const Cart = ({ device }) => {
         ) : (
           <div className="cart-shopping-list">
             {cartItems.map(item => (
-              <div key={item.product} className="cart-shopping-list-item">
+              <div
+                key={item.product}
+                className={`cart-shopping-list-item ${device}`}
+              >
                 <div className="cart-shopping-list-item-cover">
-                  <img src={item.image} alt="product" width="220px" />
+                  <Link to={`/product/productDetail/${item.product}`}>
+                    <img src={item.image} alt="product" className={device} />
+                  </Link>
                 </div>
                 <div className="cart-shopping-list-item-contents">
                   <div className="cart-shopping-list-item-contents-title">
-                    {item.name}
+                    <Link to={`/product/productDetail/${item.product}`}>
+                      {item.name}
+                    </Link>
                   </div>
                   <div className="cart-shopping-list-item-contents-price">
                     ${item.price}
@@ -83,7 +91,9 @@ const Cart = ({ device }) => {
           </div>
         )}
       </div>
-      <div className="cart-buy">Proceed to Checkout</div>
+      <div className="cart-buy">
+        <button type="button">Proceed to Checkout</button>
+      </div>
     </section>
   );
 };
