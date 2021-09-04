@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Register from './pages/Register';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
+import Shipping from './pages/Shipping';
 
 import './sass/main.scss';
 
@@ -41,6 +42,11 @@ function App() {
         {/* Cart */}
         <Route path="/cart">
           <Cart device={device} />
+        </Route>
+
+        {/* Order */}
+        <Route path="/shipping">
+          <Shipping device={device} />
         </Route>
 
         {/* Home */}

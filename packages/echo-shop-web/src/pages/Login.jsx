@@ -11,9 +11,12 @@ const Login = ({ device }) => {
   const userData = useSelector(state => state.userData);
   const { loading, userInfo, error } = userData;
   const dispatch = useDispatch();
+  const redirect = history.location.search
+    ? history.location.search.split('=')[1]
+    : '/';
   useEffect(() => {
     if (userInfo && userInfo !== 'undefined') {
-      history.goBack();
+      history.push(redirect);
     }
     return () => {};
   }, [history, userInfo]);

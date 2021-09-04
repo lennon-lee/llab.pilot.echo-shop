@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../actions/cartActions';
 
@@ -12,6 +12,7 @@ const Cart = ({ device }) => {
   const upsertQty = (key, value) => {
     setQtyData(prev => new Map(prev).set(key, value));
   };
+  const history = useHistory();
 
   useEffect(() => {
     // cart item 갯수 변경시 qtyData 갯수 일치
@@ -27,6 +28,10 @@ const Cart = ({ device }) => {
     cartItems.map(item => upsertQty(item.product, item.qty));
     return () => {};
   }, [cartItems]);
+
+  const handlerCheckout = () => {
+    history.push('/login?redirect=shipping');
+  };
 
   return (
     <section className={`cart ${device}`}>
@@ -92,7 +97,9 @@ const Cart = ({ device }) => {
         )}
       </div>
       <div className="cart-buy">
-        <button type="button">Proceed to Checkout</button>
+        <button type="button" onClick={handlerCheckout}>
+          Proceed to Checkout
+        </button>
       </div>
     </section>
   );
