@@ -30,7 +30,7 @@ const Cart = ({ device }) => {
 
   return (
     <section className={`cart ${device}`}>
-      <div className="cart-shopping">
+      <div className={`cart-shopping ${device}`}>
         <div>
           <h1>Shopping Cart</h1>
         </div>
