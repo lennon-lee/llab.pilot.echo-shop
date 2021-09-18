@@ -29,7 +29,8 @@
 // 5. Components
 @import
   'components/buttons',
-  'components/product';
+  'components/product',
+  'components/checkoutSteps';
 
 // 6. Page-specific styles
 @import
@@ -39,7 +40,9 @@
   'pages/profile',
   'pages/product-detail',
   'pages/cart',
-  'pages/shipping';
+  'pages/shipping',
+  'pages/payment',
+  'pages/placeOrder';
 
 // 7. Themes
 @import

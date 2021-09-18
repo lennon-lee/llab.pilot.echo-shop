@@ -10,6 +10,8 @@ import Register from './pages/Register';
 import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Shipping from './pages/Shipping';
+import Payment from './pages/Payment';
+import PlaceOrder from './pages/PlaceOrder';
 
 import './sass/main.scss';
 
@@ -47,6 +49,12 @@ function App() {
         {/* Order */}
         <Route path="/shipping">
           <Shipping device={device} />
+        </Route>
+        <Route path="/payment">
+          <Payment device={device} />
+        </Route>
+        <Route path="/placeOrder">
+          <PlaceOrder device={device} />
         </Route>
 
         {/* Home */}
