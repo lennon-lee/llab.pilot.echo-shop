@@ -4,7 +4,7 @@
   align-items: center;
   height: 100%;
   margin-top: 93px;
-  padding: 47px 18px 50px;
+  padding: 25px 18px 50px;
   background-color: #edefef;
 
   &.mobile {
@@ -16,11 +16,15 @@
     flex-direction: column;
     width: 32rem;
     padding: 2rem;
-    margin-top: 20px;
+    margin-top: 30px;
     border: 0.1rem #c0c0c0 solid;
     border-radius: 0.5rem;
     list-style-type: none;
     background-color: white;
+
+    &.mobile {
+      width: 80%;
+    }
 
     div {
       display: flex;

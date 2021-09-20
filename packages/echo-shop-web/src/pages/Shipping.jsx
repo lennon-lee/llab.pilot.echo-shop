@@ -64,8 +64,11 @@ const Shipping = ({ device }) => {
           } = formik;
           return (
             <>
-              <CheckoutStpes />
-              <form onSubmit={handleSubmit} className="shipping-form">
+              <CheckoutStpes device={device} step1 step2 />
+              <form
+                onSubmit={handleSubmit}
+                className={`shipping-form ${device}`}
+              >
                 <div>
                   <h2>Shipping</h2>
                 </div>

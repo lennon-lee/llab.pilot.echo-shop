@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { savePayment } from '../actions/cartActions';
+import CheckoutSteps from '../components/CheckoutSteps';
 
 const Payment = ({ device }) => {
   const [paymentMethod, setPaymentMethod] = useState('paypal');
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const submitHandler = e => {
     e.preventDefault(); // ignore submit
-    console.log(paymentMethod);
+    dispatch(savePayment({ paymentMethod }));
     history.push('/placeOrder');
   };
 
   return (
     <section className={`payment ${device}`}>
-      <form onSubmit={submitHandler} className="payment-form">
+      <CheckoutSteps device={device} step1 step2 step3 />
+      <form onSubmit={submitHandler} className={`payment-form ${device}`}>
         <div>
           <h2>Payment</h2>
         </div>
