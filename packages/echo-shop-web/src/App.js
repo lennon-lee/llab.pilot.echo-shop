@@ -12,6 +12,7 @@ import Cart from './pages/Cart';
 import Shipping from './pages/Shipping';
 import Payment from './pages/Payment';
 import PlaceOrder from './pages/PlaceOrder';
+import Order from './pages/Order';
 
 import './sass/main.scss';
 
@@ -55,6 +56,9 @@ function App() {
         </Route>
         <Route path="/placeOrder">
           <PlaceOrder device={device} />
+        </Route>
+        <Route path="/order/:id">
+          <Order device={device} />
         </Route>
 
         {/* Home */}
