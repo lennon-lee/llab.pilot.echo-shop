@@ -12,55 +12,6 @@
     margin-top: 62px;
   }
 
-  &-shopping {
-    border: 1px #ccc solid;
-    padding: 18px;
-    background-color: white;
-
-    &.mobile {
-      width: auto;
-    }
-
-    &-list {
-      &-item {
-        display: flex;
-        border: 1px #ccc solid;
-        padding: 10px;
-        margin-bottom: 15px;
-        gap: 10px;
-
-        &.mobile {
-          flex-direction: column;
-        }
-
-        &-cover {
-          img {
-            width: 220px;
-
-            &.mobile {
-              width: 100%;
-            }
-          }
-        }
-
-        &-contents {
-          line-height: 30px;
-
-          &-title a {
-            font-size: 20px;
-            text-decoration: none;
-            color: black;
-          }
-
-          &-price {
-            font-size: 20px;
-            font-weight: bold;
-          }
-        }
-      }
-    }
-  }
-
   &-buy {
     min-width: 25%;
     border: 1px #ccc solid;

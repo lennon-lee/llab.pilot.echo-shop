@@ -24,20 +24,6 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-
-      .cart-shipping {
-        border: 1px #ccc solid;
-        padding: 18px;
-        background-color: white;
-      }
-
-      .cart-payment {
-        border: 1px #ccc solid;
-        padding: 18px;
-        background-color: white;
-      }
-
-      // cart-shopping (_cart.scss)
     }
 
     &-buy {

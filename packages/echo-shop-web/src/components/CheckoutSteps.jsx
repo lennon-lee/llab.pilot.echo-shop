@@ -1,5 +1,5 @@
 import React from 'react';
-import PropsType from 'prop-types';
+import PropType from 'prop-types';
 
 const CheckoutSteps = ({ device, step1, step2, step3, step4 }) => (
   <div className={`checkout-steps ${device}`}>
@@ -11,11 +11,11 @@ const CheckoutSteps = ({ device, step1, step2, step3, step4 }) => (
 );
 
 CheckoutSteps.propTypes = {
-  device: PropsType.string,
-  step1: PropsType.bool,
-  step2: PropsType.bool,
-  step3: PropsType.bool,
-  step4: PropsType.bool,
+  device: PropType.string,
+  step1: PropType.bool,
+  step2: PropType.bool,
+  step3: PropType.bool,
+  step4: PropType.bool,
 };
 
 CheckoutSteps.defaultProps = {
