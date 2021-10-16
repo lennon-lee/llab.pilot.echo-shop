@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropType from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import createOrder from '../actions/orderActions';
+import { createOrder } from '../actions/orderActions';
 import CheckoutSteps from '../components/CheckoutSteps';
 import BasicOrderCard from '../components/BasicOrderCard';
 import ShoppingCart from '../components/ShoppingCart';
@@ -19,10 +19,10 @@ const PlaceOrder = ({ device }) => {
     history.push('/shipping');
   }
 
-  const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const shippingPrice = itemPrice > 100 ? 0 : 10;
-  const taxPrice = itemPrice * 0.15;
-  const totalPrice = itemPrice + shippingPrice + taxPrice;
+  const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+  const shippingPrice = itemsPrice > 100 ? 0 : 10;
+  const taxPrice = itemsPrice * 0.15;
+  const totalPrice = itemsPrice + shippingPrice + taxPrice;
 
   const handlerPlaceOrder = () => {
     dispatch(
@@ -30,7 +30,7 @@ const PlaceOrder = ({ device }) => {
         orderItems: cartItems,
         shipping,
         payment,
-        itemPrice,
+        itemsPrice,
         shippingPrice,
         taxPrice,
         totalPrice,
@@ -66,7 +66,7 @@ const PlaceOrder = ({ device }) => {
               <div className="total">Order Total</div>
             </div>
             <div className="place-order-form-buy-summary-value">
-              <div>${itemPrice}</div>
+              <div>${itemsPrice}</div>
               <div>${shippingPrice}</div>
               <div>${taxPrice}</div>
               <div className="total">${totalPrice}</div>
