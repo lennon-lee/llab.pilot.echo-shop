@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createOrder } from '../actions/orderActions';
@@ -46,7 +46,9 @@ const PlaceOrder = ({ device }) => {
 
   return (
     <section className={`place-order ${device}`}>
-      <CheckoutSteps device={device} step1 step2 step3 step4 />
+      <div className="center">
+        <CheckoutSteps device={device} step1 step2 step3 step4 />
+      </div>
       <div className={`place-order-form ${device}`}>
         <div className="place-order-form-info">
           <BasicOrderCard title="Shipping" type="shipping" order={shipping} />
@@ -79,7 +81,7 @@ const PlaceOrder = ({ device }) => {
 };
 
 PlaceOrder.propTypes = {
-  device: PropType.string,
+  device: PropTypes.string,
 };
 
 PlaceOrder.defaultProps = {

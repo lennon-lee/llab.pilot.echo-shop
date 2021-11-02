@@ -1,27 +1,32 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailOrder, payOrder } from '../actions/orderActions';
 
 import BasicOrderCard from '../components/BasicOrderCard';
 import ShoppingCart from '../components/ShoppingCart';
+import PayPalButton from '../components/PayPalButton';
 
 const Order = ({ device }) => {
   const { id } = useParams();
+  const history = useHistory();
   const dispatch = useDispatch();
 
+  const orderPay = useSelector(state => state.orderPay);
+  const { loading: loadingPay, success: successPay } = orderPay;
+
   useEffect(() => {
+    if (successPay) {
+      history.push('/profile');
+    }
     dispatch(detailOrder(id));
-  }, []);
+  }, [successPay]);
 
   const orderDetail = useSelector(state => state.orderDetail);
   const { loading, order, error } = orderDetail;
-  console.log(order);
 
-  // TODO: Payment 버튼생성 및 프로세스 진행 후 결과 값 전달 확인
   const handlePay = paymentResult => {
-    console.log(paymentResult);
     dispatch(payOrder(order, paymentResult));
   };
 
@@ -45,11 +50,12 @@ const Order = ({ device }) => {
           </div>
           <div className="order-form-buy">
             {/* Payment */}
-            <div>
-              <button type="button" onClick={handlePay}>
-                Paypal
-              </button>
-            </div>
+            {loadingPay && <div>Finishing Payment...</div>}
+            {!order.isPaid && (
+              <div>
+                <PayPalButton amount={order.totalPrice} onSuccess={handlePay} />
+              </div>
+            )}
 
             {/* Order Summary */}
             <div className="order-form-buy-title">Order Summary</div>

@@ -1,7 +1,6 @@
 .place-order {
   display: flex;
   flex-direction: column;
-  align-items: center;
   height: 100%;
   margin-top: 93px;
   padding: 25px 18px 50px;
@@ -9,6 +8,11 @@
 
   &.mobile {
     margin-top: 62px;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
   }
 
   &-form {
@@ -23,10 +27,12 @@
     &-info {
       display: flex;
       flex-direction: column;
+      flex-grow: 1;
       gap: 20px;
     }
 
     &-buy {
+      flex-shrink: 0;
       min-width: 25%;
       border: 1px #ccc solid;
       padding: 18px;

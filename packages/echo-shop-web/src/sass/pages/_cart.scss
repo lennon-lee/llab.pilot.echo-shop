@@ -13,6 +13,7 @@
   }
 
   &-buy {
+    flex-shrink: 0;
     min-width: 25%;
     border: 1px #ccc solid;
     padding: 18px;

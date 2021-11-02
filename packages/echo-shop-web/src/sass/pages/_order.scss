@@ -1,5 +1,6 @@
 .order {
   display: flex;
+  justify-content: center;
   gap: 20px;
   height: 100%;
   margin-top: 93px;
@@ -14,9 +15,11 @@
   &-form {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: 20px;
 
     &-buy {
+      flex-shrink: 0;
       min-width: 25%;
       border: 1px #ccc solid;
       padding: 18px;

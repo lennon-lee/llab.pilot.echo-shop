@@ -1,5 +1,5 @@
 import React from 'react';
-import PropType from 'prop-types';
+import PropTypes from 'prop-types';
 
 const BasicOrderCard = ({ title, type, order }) => {
   return (
@@ -26,13 +26,13 @@ const BasicOrderCard = ({ title, type, order }) => {
 };
 
 BasicOrderCard.propTypes = {
-  title: PropType.string,
-  type: PropType.string,
-  order: PropType.objectOf(PropType.any),
+  title: PropTypes.string,
+  type: PropTypes.string,
+  order: PropTypes.objectOf(PropTypes.any),
 };
 
 BasicOrderCard.defaultProps = {
-  title: PropType.string,
+  title: PropTypes.string,
   type: '',
   order: {},
 };

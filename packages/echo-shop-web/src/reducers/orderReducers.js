@@ -36,7 +36,16 @@ const orderDetailReducer = (state = {}, action) => {
   }
 };
 
-const orderPayReducer = (state = {}, action) => {
+const orderPayReducer = (
+  state = {
+    order: {
+      orderItems: [],
+      shipping: {},
+      payment: {},
+    },
+  },
+  action,
+) => {
   switch (action.type) {
     case ORDER_PAY_REQUEST:
       return { loading: true };
