@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+
 // 1. Configuration and helpers
 @import
   'abstracts/variables',
@@ -32,6 +38,7 @@
   'components/product',
   'components/checkout-steps',
   'components/shopping-cart',
+  'components/rating',
   'components/basic-order-card';
 
 // 6. Page-specific styles

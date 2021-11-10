@@ -16,9 +16,7 @@ const config = {
     historyApiFallback: true,
     port: 8081,
   },
-  plugins: [
-    new StyleLintPlugin({ fix: true }),
-  ],
+  plugins: [new StyleLintPlugin({ fix: true })],
 };
 
 module.exports = merge(common, config);

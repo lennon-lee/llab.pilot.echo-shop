@@ -4,8 +4,5 @@ module.exports = {
     // Uncaught ReferenceError: regeneratorRuntime is not defined
     '@babel/plugin-transform-runtime',
   ],
-  presets: [
-    '@babel/preset-env',
-    '@babel/preset-react',
-  ],
+  presets: ['@babel/preset-env', '@babel/preset-react'],
 };

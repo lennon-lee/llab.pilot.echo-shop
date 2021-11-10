@@ -7,7 +7,7 @@ const config = {
     minimize: true,
     minimizer: [
       new CssMinimizerWebpackPlugin(),
-      (compiler) => {
+      compiler => {
         const TerserPlugin = require('terser-webpack-plugin');
         new TerserPlugin({
           terserOptions: {

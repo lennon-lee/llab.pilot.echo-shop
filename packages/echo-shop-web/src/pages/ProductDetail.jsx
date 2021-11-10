@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { detailProduct } from '../actions/productActions';
 import { addToCart } from '../actions/cartActions';
+import Rating from '../components/Rating';
 
 const ProductDetail = ({ device }) => {
   const [qty, setQty] = useState(1);
@@ -76,7 +77,14 @@ const ProductDetail = ({ device }) => {
             </div>
           </div>
           <div className="product-detail-space" />
-          <div className="product-detail-review">Reviews</div>
+          <div className="product-detail-review">
+            <div>Reviews</div>
+            {/* TODO: rating */}
+            <Rating value={5} max={5} />
+            <Rating value={3.5} max={5} />
+            <Rating value={4.5} max={5} />
+            <Rating value={1} max={5} />
+          </div>
         </>
       )}
     </section>

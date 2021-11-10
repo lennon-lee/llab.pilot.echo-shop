@@ -40,7 +40,8 @@ module.exports = {
               postcssLoader,
               'sass-loader',
             ],
-          }, {
+          },
+          {
             use: [
               MiniCssExtractPlugin.loader,
               'css-loader',
@@ -49,10 +50,12 @@ module.exports = {
             ],
           },
         ],
-      }, {
+      },
+      {
         test: /\.hbs$/i,
         use: ['handlebars-loader'],
-      }, {
+      },
+      {
         test: /\.(png|jpe?g|gif)$/i,
         type: 'asset/resource',
         generator: {
@@ -63,15 +66,27 @@ module.exports = {
             return 'images/[contenthash][ext]';
           },
         },
-      }, {
+      },
+      {
+        // fontawesome
+        test: /\.(svg|eot|woff|woff2|ttf)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'compiled/fonts/[hash][ext][query]',
+        },
+      },
+      {
         test: /\.svg$/,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            limit: 8192,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
           },
-        }],
-      }, {
+        ],
+      },
+      {
         test: /.js/,
         exclude: /node_module/,
         use: ['babel-loader', 'eslint-loader'],
@@ -91,11 +106,13 @@ module.exports = {
       meta: {
         viewport: 'width=device-width, initial-scale=1.0',
       },
-      minify: isProduction ? {
-        collapseWhitespace: true,
-        useShortDoctype: true,
-        removeScriptTypeAttributes: true,
-      } : false,
+      minify: isProduction
+        ? {
+            collapseWhitespace: true,
+            useShortDoctype: true,
+            removeScriptTypeAttributes: true,
+          }
+        : false,
     }),
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
