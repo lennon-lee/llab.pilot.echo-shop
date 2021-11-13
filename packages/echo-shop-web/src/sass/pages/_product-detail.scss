@@ -113,5 +113,31 @@
     font-weight: bold;
     height: 400px;
     background-color: white;
+
+    &-list {
+      &-row {
+        display: flex;
+        font-size: 15px;
+      }
+    }
+
+    &-input {
+      margin-top: 15px;
+
+      select {
+        border-radius: 2px;
+      }
+
+      textarea {
+        padding: 18px 14px;
+        width: 60%;
+        border: 1px solid gray;
+        border-radius: 2px;
+      }
+
+      textarea:hover {
+        border: 1px solid black;
+      }
+    }
   }
 }

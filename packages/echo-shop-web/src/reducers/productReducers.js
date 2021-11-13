@@ -5,6 +5,9 @@ import {
   PRODUCT_DETAIL_REQUEST,
   PRODUCT_DETAIL_SUCCESS,
   PRODUCT_DETAIL_FAIL,
+  PRODUCT_REVIEW_ADD_REQUEST,
+  PRODUCT_REVIEW_ADD_SUCCESS,
+  PRODUCT_REVIEW_ADD_FAIL,
 } from '../constants/productConstants';
 
 const productListReducer = (state = { products: [] }, action) => {
@@ -25,7 +28,7 @@ const productDetailReducer = (state = { product: [] }, action) => {
     case PRODUCT_DETAIL_REQUEST:
       return { loading: true };
     case PRODUCT_DETAIL_SUCCESS:
-      return { loading: false, product: action.payload };
+      return { loading: false, product: action.payload, success: true };
     case PRODUCT_DETAIL_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -33,4 +36,17 @@ const productDetailReducer = (state = { product: [] }, action) => {
   }
 };
 
-export { productListReducer, productDetailReducer };
+const productReviewAddReducer = (state = { product: [] }, action) => {
+  switch (action.type) {
+    case PRODUCT_REVIEW_ADD_REQUEST:
+      return { loading: true };
+    case PRODUCT_REVIEW_ADD_SUCCESS:
+      return { loading: false, review: action.payload, success: true };
+    case PRODUCT_REVIEW_ADD_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export { productListReducer, productDetailReducer, productReviewAddReducer };

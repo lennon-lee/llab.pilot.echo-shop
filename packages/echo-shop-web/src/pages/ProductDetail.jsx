@@ -2,33 +2,61 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { detailProduct } from '../actions/productActions';
+import { detailProduct, addProductReview } from '../actions/productActions';
 import { addToCart } from '../actions/cartActions';
 import Rating from '../components/Rating';
 
 const ProductDetail = ({ device }) => {
   const [qty, setQty] = useState(1);
+  const [rating, setRating] = useState(1);
+  const [comment, setComment] = useState('');
   const { id } = useParams();
   const history = useHistory();
+  const userData = useSelector(state => state.userData);
+  const { userInfo } = userData;
   const productDetail = useSelector(state => state.productDetail);
-  const { product, loading, error } = productDetail;
+  const {
+    product,
+    loading,
+    error,
+    success: productDetailSuccess,
+  } = productDetail;
+  const productReviewAdd = useSelector(state => state.productReviewAdd);
+  console.log(productReviewAdd);
+  const { success: productReviewAddSuccess } = productReviewAdd;
   const dispatch = useDispatch();
   useEffect(() => {
+    // todo: addReview
+    if (productReviewAddSuccess) {
+      console.log(productDetail);
+      setRating(3);
+      setComment('');
+    }
     dispatch(detailProduct(id));
-
-    return () => {};
-  }, [dispatch, id]);
+    return () => {
+      //
+    };
+  }, [productReviewAddSuccess]);
   const moveCartPage = () => {
     history.push(`/cart`);
   };
   const handleAddToCart = () => {
     dispatch(addToCart(id, qty, moveCartPage));
   };
+  const addRatingHandler = () => {
+    dispatch(
+      addProductReview(id, {
+        name: userInfo.name,
+        rating,
+        comment,
+      }),
+    );
+  };
 
   return (
     <section className={`product-detail ${device}`}>
       {loading ? <div>Loading...</div> : <div>{error}</div>}
-      {product && (
+      {productDetailSuccess && (
         <>
           <div className={`product-detail-main ${device}`}>
             <div className="product-detail-main-cover">
@@ -78,12 +106,58 @@ const ProductDetail = ({ device }) => {
           </div>
           <div className="product-detail-space" />
           <div className="product-detail-review">
-            <div>Reviews</div>
-            {/* TODO: rating */}
-            <Rating value={5} max={5} />
-            <Rating value={3.5} max={5} />
-            <Rating value={4.5} max={5} />
-            <Rating value={1} max={5} />
+            <div className="product-detail-review-list">
+              <div>Customer Reviews</div>
+              {!product.reviews.length && <div>There is no review</div>}
+              <div>
+                {product.reviews.map(review => (
+                  <div
+                    key={review._id}
+                    className="product-detail-review-list-row"
+                  >
+                    <div>
+                      <div>{product.name}</div>
+                      <div>{review.createdAt.substring(0, 20)}</div>
+                    </div>
+                    <div>
+                      <Rating value={review.rating} max={5} />
+                      <div>{review.comment}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="product-detail-review-input">
+              <div>Leave your review</div>
+              <div>
+                <select
+                  name="rating"
+                  id="rating"
+                  value={rating}
+                  onChange={e => setRating(e.target.value)}
+                >
+                  <option value="1">1 - Poor</option>
+                  <option value="2">2 - Fair</option>
+                  <option value="3">3 - Good</option>
+                  <option value="4">4 - Very Good</option>
+                  <option value="5">5 - Excelent</option>
+                </select>
+              </div>
+              <div>
+                <textarea
+                  type="text"
+                  name="comment"
+                  placeholder="Enter comment"
+                  value={comment}
+                  onChange={e => setComment(e.target.value)}
+                />
+              </div>
+              <div>
+                <button type="button" onClick={addRatingHandler}>
+                  Submit
+                </button>
+              </div>
+            </div>
           </div>
         </>
       )}

@@ -6,9 +6,9 @@ const Rating = ({ value, max }) => {
   const refineValue = Math.round(value);
 
   for (let i = 0; i < refineValue; i += 1) {
-    let element = <i className="fas fa-star yellow" />;
+    let element = <i className="fas fa-star" />;
     if (i === refineValue - 1 && value % 1 !== 0) {
-      element = <i className="fas fa-star-half-alt yellow" />;
+      element = <i className="fas fa-star-half-alt" />;
     }
     iconElement.push({
       id: i,
@@ -18,7 +18,7 @@ const Rating = ({ value, max }) => {
   for (let i = 0; i < max - refineValue; i += 1) {
     iconElement.push({
       id: i + refineValue,
-      element: <i className="far fa-star yellow" />,
+      element: <i className="far fa-star" />,
     });
   }
 
